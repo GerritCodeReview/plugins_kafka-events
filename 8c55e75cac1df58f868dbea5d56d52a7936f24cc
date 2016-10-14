@@ -25,6 +25,76 @@
     },
     {
       "key": {
+        "uuid": "bce9af6b_227e6e23",
+        "filename": "BUCK",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-10-14T22:57:21Z",
+      "side": 1,
+      "message": "It\u0027s a leftover of the RabbitMQ plugin .... possibly is not even needed :-O",
+      "parentUuid": "bc10ce06_d397d43a",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 1
+      },
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc6e0fe8_5a6ff56f",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-10-14T22:57:21Z",
+      "side": 1,
+      "message": "this should be ```bootstrapServers```",
+      "range": {
+        "startLine": 46,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 10
+      },
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc6e0fe8_7a743943",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-10-14T22:57:21Z",
+      "side": 1,
+      "message": "Not strictly needed",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 25
+      },
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc10ce06_33ad6888",
         "filename": "lib/BUCK",
         "patchSetId": 1
@@ -48,6 +118,42 @@
     },
     {
       "key": {
+        "uuid": "bce9af6b_02836aeb",
+        "filename": "lib/BUCK",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-10-14T22:57:21Z",
+      "side": 1,
+      "message": "True, removed.",
+      "parentUuid": "bc10ce06_33ad6888",
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bce9af6b_e27f661b",
+        "filename": "lib/BUCK",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-10-14T22:57:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc10ce06_33ad6888",
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc5c06da_25a4eea0",
         "filename": "lib/commons/BUCK",
         "patchSetId": 1
@@ -59,6 +165,42 @@
       "writtenOn": "2016-10-14T00:39:04Z",
       "side": 1,
       "message": "Aren\u0027t all of these available as exported deps from the plugin API?",
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bce9af6b_a2895e09",
+        "filename": "lib/commons/BUCK",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-10-14T22:57:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc5c06da_25a4eea0",
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bce9af6b_c28c621b",
+        "filename": "lib/commons/BUCK",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-10-14T22:57:21Z",
+      "side": 1,
+      "message": "Not even usign them anymore, removed.",
+      "parentUuid": "fc5c06da_25a4eea0",
       "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -88,6 +230,24 @@
     },
     {
       "key": {
+        "uuid": "bce9af6b_42905229",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/Manager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-10-14T22:57:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c9fd279_20026a1b",
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc5c06da_c5c15a2e",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/Module.java",
         "patchSetId": 1
@@ -99,6 +259,24 @@
       "writtenOn": "2016-10-14T00:39:04Z",
       "side": 1,
       "message": "nit: long lines",
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bce9af6b_22954e19",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/Module.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-10-14T22:57:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc5c06da_c5c15a2e",
       "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -128,6 +306,24 @@
     },
     {
       "key": {
+        "uuid": "bc6e0fe8_1a797d3a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/config/KafkaProperties.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-10-14T22:57:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc10ce06_13aaec6f",
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cad5ab1_9e151d56",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/config/KafkaProperties.java",
         "patchSetId": 1
@@ -145,6 +341,24 @@
     },
     {
       "key": {
+        "uuid": "bce9af6b_82965a27",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/config/KafkaProperties.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-10-14T22:57:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cad5ab1_9e151d56",
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc10ce06_53a464a1",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/config/KafkaPropertiesProvider.java",
         "patchSetId": 1
@@ -156,6 +370,24 @@
       "writtenOn": "2016-10-14T00:39:04Z",
       "side": 1,
       "message": "@Singleton?",
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bce9af6b_629b5651",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/config/KafkaPropertiesProvider.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-10-14T22:57:21Z",
+      "side": 1,
+      "message": "It\u0027s already bound to singleton in the Guice Module.",
+      "parentUuid": "bc10ce06_53a464a1",
       "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -185,6 +417,42 @@
     },
     {
       "key": {
+        "uuid": "bc6e0fe8_3a7ec123",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/config/KafkaPropertiesProvider.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-10-14T22:57:21Z",
+      "side": 1,
+      "message": "removed",
+      "parentUuid": "bc10ce06_73a7e0a7",
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc6e0fe8_da8225e6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/config/KafkaPropertiesProvider.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-10-14T22:57:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc10ce06_73a7e0a7",
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc10ce06_b3c1782f",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/message/GsonProvider.java",
         "patchSetId": 1
@@ -196,6 +464,24 @@
       "writtenOn": "2016-10-14T00:39:04Z",
       "side": 1,
       "message": "@Singleton?",
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc6e0fe8_fa7fe91a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/message/GsonProvider.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-10-14T22:57:21Z",
+      "side": 1,
+      "message": "Already bound to singleton in the Guice module.",
+      "parentUuid": "bc10ce06_b3c1782f",
       "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -225,6 +511,24 @@
     },
     {
       "key": {
+        "uuid": "bc6e0fe8_9a8cad1a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/message/Publisher.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-10-14T22:57:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc10ce06_93c6fc42",
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c9fd279_0000860f",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/session/type/KafkaSession.java",
         "patchSetId": 1
@@ -236,6 +540,24 @@
       "writtenOn": "2016-10-14T00:14:47Z",
       "side": 1,
       "message": "nit:extra empty line",
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc6e0fe8_ba897109",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/session/type/KafkaSession.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-10-14T22:57:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c9fd279_0000860f",
       "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -265,6 +587,24 @@
     },
     {
       "key": {
+        "uuid": "bce9af6b_02aa4a5b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/session/type/KafkaSession.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-10-14T22:57:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc10ce06_f3cbf048",
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc5c06da_e5c6d643",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/worker/DefaultEventWorker.java",
         "patchSetId": 1
@@ -282,6 +622,24 @@
         "endLine": 49,
         "endChar": 31
       },
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bce9af6b_e2a64695",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/worker/DefaultEventWorker.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-10-14T22:57:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc5c06da_e5c6d643",
       "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -334,6 +692,42 @@
     },
     {
       "key": {
+        "uuid": "bce9af6b_c2a34283",
+        "filename": "src/main/resources/Documentation/message.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-10-14T22:57:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc5c06da_a5d0def4",
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc6e0fe8_5a96152a",
+        "filename": "src/main/resources/Documentation/message.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-10-14T22:57:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc5c06da_45b6cad4",
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc5c06da_85cb624a",
         "filename": "src/main/resources/Documentation/message.md",
         "patchSetId": 1
@@ -351,6 +745,24 @@
         "endLine": 15,
         "endChar": 29
       },
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc6e0fe8_7a9bd950",
+        "filename": "src/main/resources/Documentation/message.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-10-14T22:57:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc5c06da_85cb624a",
       "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
