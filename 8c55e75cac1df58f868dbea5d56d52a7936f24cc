@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c9fd279_20026a1b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/Manager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2016-10-14T00:14:47Z",
+      "side": 1,
+      "message": "unneeded finals",
+      "range": {
+        "startLine": 39,
+        "startChar": 17,
+        "endLine": 41,
+        "endChar": 38
+      },
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cad5ab1_9e151d56",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/config/KafkaProperties.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2016-10-14T00:14:47Z",
+      "side": 1,
+      "message": "nit: extra empty line",
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c9fd279_0000860f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/session/type/KafkaSession.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2016-10-14T00:14:47Z",
+      "side": 1,
+      "message": "nit:extra empty line",
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
