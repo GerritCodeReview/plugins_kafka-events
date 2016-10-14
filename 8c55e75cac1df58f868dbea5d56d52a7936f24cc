@@ -2,6 +2,69 @@
   "comments": [
     {
       "key": {
+        "uuid": "bc10ce06_d397d43a",
+        "filename": "BUCK",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-10-14T00:39:04Z",
+      "side": 1,
+      "message": "Why is this defined here and also in lib/commons/BUCK?",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 1
+      },
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc10ce06_33ad6888",
+        "filename": "lib/BUCK",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-10-14T00:39:04Z",
+      "side": 1,
+      "message": "Why is this needed? The gerrit plugin API exposes gson 2.7 as an exported dependency.",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 1
+      },
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc5c06da_25a4eea0",
+        "filename": "lib/commons/BUCK",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-10-14T00:39:04Z",
+      "side": 1,
+      "message": "Aren\u0027t all of these available as exported deps from the plugin API?",
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c9fd279_20026a1b",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/Manager.java",
         "patchSetId": 1
@@ -18,6 +81,46 @@
         "startChar": 17,
         "endLine": 41,
         "endChar": 38
+      },
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc5c06da_c5c15a2e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/Module.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-10-14T00:39:04Z",
+      "side": 1,
+      "message": "nit: long lines",
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc10ce06_13aaec6f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/config/KafkaProperties.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-10-14T00:39:04Z",
+      "side": 1,
+      "message": "We usually just use 0L.",
+      "range": {
+        "startLine": 21,
+        "startChar": 48,
+        "endLine": 21,
+        "endChar": 68
       },
       "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
@@ -42,6 +145,86 @@
     },
     {
       "key": {
+        "uuid": "bc10ce06_53a464a1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/config/KafkaPropertiesProvider.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-10-14T00:39:04Z",
+      "side": 1,
+      "message": "@Singleton?",
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc10ce06_73a7e0a7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/config/KafkaPropertiesProvider.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-10-14T00:39:04Z",
+      "side": 1,
+      "message": "Is this needed?  If not line 38 can be inlined at line 40.",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 41
+      },
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc10ce06_b3c1782f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/message/GsonProvider.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-10-14T00:39:04Z",
+      "side": 1,
+      "message": "@Singleton?",
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc10ce06_93c6fc42",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/message/Publisher.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-10-14T00:39:04Z",
+      "side": 1,
+      "message": "isEnabled",
+      "range": {
+        "startLine": 27,
+        "startChar": 10,
+        "endLine": 27,
+        "endChar": 18
+      },
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c9fd279_0000860f",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/session/type/KafkaSession.java",
         "patchSetId": 1
@@ -53,6 +236,121 @@
       "writtenOn": "2016-10-14T00:14:47Z",
       "side": 1,
       "message": "nit:extra empty line",
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc10ce06_f3cbf048",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/session/type/KafkaSession.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-10-14T00:39:04Z",
+      "side": 1,
+      "message": "debug?\n\nalso some of the logs below might be better as debug.",
+      "range": {
+        "startLine": 49,
+        "startChar": 13,
+        "endLine": 49,
+        "endChar": 17
+      },
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc5c06da_e5c6d643",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/worker/DefaultEventWorker.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-10-14T00:39:04Z",
+      "side": 1,
+      "message": "Wrap in a try-catch block so exceptions in one publisher don\u0027t prevent subsequent publishers from being invoked?",
+      "range": {
+        "startLine": 49,
+        "startChar": 6,
+        "endLine": 49,
+        "endChar": 31
+      },
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc5c06da_45b6cad4",
+        "filename": "src/main/resources/Documentation/message.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-10-14T00:39:04Z",
+      "side": 1,
+      "message": "extra period",
+      "range": {
+        "startLine": 4,
+        "startChar": 66,
+        "endLine": 4,
+        "endChar": 67
+      },
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc5c06da_a5d0def4",
+        "filename": "src/main/resources/Documentation/message.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-10-14T00:39:04Z",
+      "side": 1,
+      "message": "publishes",
+      "range": {
+        "startLine": 4,
+        "startChar": 12,
+        "endLine": 4,
+        "endChar": 19
+      },
+      "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc5c06da_85cb624a",
+        "filename": "src/main/resources/Documentation/message.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-10-14T00:39:04Z",
+      "side": 1,
+      "message": "same as",
+      "range": {
+        "startLine": 15,
+        "startChar": 25,
+        "endLine": 15,
+        "endChar": 29
+      },
       "revId": "8c55e75cac1df58f868dbea5d56d52a7936f24cc",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
