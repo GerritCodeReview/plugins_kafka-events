@@ -32,11 +32,11 @@ Clone or link this plugin to the plugins directory of Gerrit's source
 tree, and issue the command:
 
 
-    buck build plugins/kafka
+    buck build plugins/kafka-events
 
 The output is created in
 
-    buck-out/gen/plugins/kafka/kafka.jar
+    buck-out/gen/plugins/kafka-events/kafka-events.jar
 
 Minimum Configuration
 ---------------------
@@ -44,8 +44,7 @@ Assuming a running Kafka broker on the same Gerrit host, add the following
 settings to gerrit.config:
 
 ```
-  [plugin "kafka"]
-    server = localhost:9092
-    topic = gerrit-events
+  [plugin "kafka-events"]
+    bootstrapServers = localhost:9092
 ```
 
