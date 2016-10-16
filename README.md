@@ -2,8 +2,8 @@ Kafka: Gerrit event producer for Apache Kafka
 =======================
 
 * Author: GerritForge
-* Repository: https://gerrit.googlesource.com/plugins/kafka
-* CI/Release: https://gerrit-ci.gerritforge.com/search/?q=kafka
+* Repository: https://gerrit.googlesource.com/plugins/kafka-events
+* CI/Release: https://gerrit-ci.gerritforge.com/search/?q=kafka-events
 
 [![Build Status](https://gerrit-ci.gerritforge.com/job/plugin-kafka-events-master/1/badge/icon)](https://gerrit-ci.gerritforge.com/job/plugin-kafka-events-master/1/)
 
