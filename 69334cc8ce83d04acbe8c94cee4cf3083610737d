@@ -16,6 +16,24 @@
       "revId": "69334cc8ce83d04acbe8c94cee4cf3083610737d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc31af18_e2fc4650",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/session/type/KafkaSession.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-10-17T08:09:09Z",
+      "side": 1,
+      "message": "It depends if the constructor is created is the same thread or not.",
+      "parentUuid": "bc31af18_a2023e6b",
+      "revId": "69334cc8ce83d04acbe8c94cee4cf3083610737d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
