@@ -34,6 +34,24 @@
       "revId": "69334cc8ce83d04acbe8c94cee4cf3083610737d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dca2e37b_233f8a20",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/session/type/KafkaSession.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-10-17T09:30:21Z",
+      "side": 1,
+      "message": "I see your point: when you create the object typically you resolve the dependent classes. This is not the case for Kafka because some of the class names are dynamically configured through the Kafka properties config. Will possibly extract this line into a method that explains WHY we are doing it :-)",
+      "parentUuid": "bc31af18_e2fc4650",
+      "revId": "69334cc8ce83d04acbe8c94cee4cf3083610737d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
