@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc31af18_a2023e6b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/session/type/KafkaSession.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-10-17T08:04:41Z",
+      "side": 1,
+      "message": "Could this be done in the constructor?",
+      "revId": "69334cc8ce83d04acbe8c94cee4cf3083610737d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
