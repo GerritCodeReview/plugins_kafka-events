@@ -23,20 +23,28 @@ Environments
 
 * `linux`
 * `java-1.8`
-* `Buck`
+* `Bazel`
 
 Build
 ---------------------
+Kafka plugin can be build as a regular 'in-tree' plugin. That means that is required to
+clone a Gerrit source tree first and then to have the Kafka plugin source directory into
+the /plugins path. Additionally, the plugins/external_plugin_deps.bzl file needs to be
+updated to match the Kafka plugin one.
 
-Clone or link this plugin to the plugins directory of Gerrit's source
-tree, and issue the command:
+    git clone --recursive https://gerrit.googlesource.com/gerrit
+    git clone https://gerrit.googlesource.com/plugins/kafka-events gerrit/plugins/kafka-events
+    cd gerrit
+    rm plugins/external_plugin_deps.bzl
+    ln -s ./kafka-events/external_plugin_deps.bzl plugins/.
 
+To build the kafka-events plugins, issue the command from the Gerrit source path:
 
-    buck build plugins/kafka-events
+    bazel build plugins/kafka-events
 
 The output is created in
 
-    buck-out/gen/plugins/kafka-events/kafka-events.jar
+    bazel-genfiles/plugins/kafka-events/kafka-events.jar
 
 Minimum Configuration
 ---------------------
