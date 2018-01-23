@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "80974e3d_8eecd376",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2018-01-23T07:12:43Z",
+      "side": 1,
+      "message": "./plugins/kafka-events/external_plugin_deps.bzl plugins/.",
+      "range": {
+        "startLine": 39,
+        "startChar": 11,
+        "endLine": 39,
+        "endChar": 12
+      },
+      "revId": "efe9cc6a30e1ec658949eedaf86cc03ea2659fb8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
