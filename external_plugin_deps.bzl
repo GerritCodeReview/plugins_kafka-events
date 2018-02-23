@@ -1,6 +1,9 @@
 load("//tools/bzl:maven_jar.bzl", "maven_jar")
 
 def external_plugin_deps():
+  kafka_events()
+
+def kafka_events():
   maven_jar(
     name = 'kafka_client',
     artifact = 'org.apache.kafka:kafka-clients:0.10.0.1',
