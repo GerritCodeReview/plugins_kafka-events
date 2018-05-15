@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87c1f31e_35b803eb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/Module.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2018-05-15T23:27:30Z",
+      "side": 1,
+      "message": "nit: import order is now incorrect.",
+      "revId": "aa4911040be60a2f7b4c4969614040e6c86b471a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0948c2d2_4ed29b5e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/worker/DefaultEventWorker.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2018-05-15T23:27:30Z",
+      "side": 1,
+      "message": "same here",
+      "revId": "aa4911040be60a2f7b4c4969614040e6c86b471a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
