@@ -14,7 +14,7 @@
 
 package com.googlesource.gerrit.plugins.kafka.message;
 
-import com.google.gerrit.common.EventListener;
+import com.google.gerrit.server.events.EventListener;
 
 import com.googlesource.gerrit.plugins.kafka.config.KafkaProperties;
 import com.googlesource.gerrit.plugins.kafka.session.Session;
