@@ -26,8 +26,7 @@ public class KafkaProperties extends java.util.Properties {
   private final String topic;
 
   @Inject
-  public KafkaProperties(PluginConfigFactory configFactory,
-      @PluginName String pluginName) {
+  public KafkaProperties(PluginConfigFactory configFactory, @PluginName String pluginName) {
     super();
     setDefaults();
     PluginConfig fromGerritConfig = configFactory.getFromGerritConfig(pluginName);
@@ -41,18 +40,15 @@ public class KafkaProperties extends java.util.Properties {
     put("batch.size", 16384);
     put("linger.ms", 1);
     put("buffer.memory", 33554432);
-    put("key.serializer",
-        "org.apache.kafka.common.serialization.StringSerializer");
-    put("value.serializer",
-        "org.apache.kafka.common.serialization.StringSerializer");
+    put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+    put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
   }
 
   private void applyConfig(PluginConfig config) {
     for (String name : config.getNames()) {
       Object value = config.getString(name);
       String propName =
-          CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_HYPHEN, name).replaceAll(
-              "-", ".");
+          CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_HYPHEN, name).replaceAll("-", ".");
       put(propName, value);
     }
   }

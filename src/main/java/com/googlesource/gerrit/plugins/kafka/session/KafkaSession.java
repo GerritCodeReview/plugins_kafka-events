@@ -26,8 +26,7 @@ import org.slf4j.LoggerFactory;
 @Singleton
 public final class KafkaSession {
 
-  private static final Logger LOGGER = LoggerFactory
-      .getLogger(KafkaSession.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(KafkaSession.class);
   private final KafkaProperties properties;
   private volatile Producer<String, String> producer;
 
@@ -49,8 +48,7 @@ public final class KafkaSession {
       return;
     }
 
-    LOGGER.info("Connect to {}...",
-        properties.getProperty("bootstrap.servers"));
+    LOGGER.info("Connect to {}...", properties.getProperty("bootstrap.servers"));
     producer = new KafkaProducer<>(properties);
     LOGGER.info("Connection established.");
   }
@@ -65,7 +63,6 @@ public final class KafkaSession {
   }
 
   public void publish(String messageBody) {
-    producer.send(new ProducerRecord<>(properties.getTopic(), "" + System.nanoTime(),
-        messageBody));
+    producer.send(new ProducerRecord<>(properties.getTopic(), "" + System.nanoTime(), messageBody));
   }
 }
