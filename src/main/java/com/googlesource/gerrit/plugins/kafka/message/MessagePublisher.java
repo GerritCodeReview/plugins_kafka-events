@@ -14,7 +14,6 @@
 
 package com.googlesource.gerrit.plugins.kafka.message;
 
-import com.google.gerrit.extensions.events.LifecycleListener;
 import com.google.gerrit.server.events.Event;
 import com.google.gson.Gson;
 import com.google.inject.Inject;
@@ -24,7 +23,7 @@ import com.googlesource.gerrit.plugins.kafka.config.KafkaProperties;
 import com.googlesource.gerrit.plugins.kafka.session.Session;
 import com.googlesource.gerrit.plugins.kafka.session.SessionFactoryProvider;
 
-public class MessagePublisher implements Publisher, LifecycleListener {
+public class MessagePublisher implements Publisher {
 
   private final Session session;
   private final KafkaProperties properties;
