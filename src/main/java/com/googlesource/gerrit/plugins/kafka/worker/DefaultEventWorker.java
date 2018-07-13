@@ -17,19 +17,15 @@ package com.googlesource.gerrit.plugins.kafka.worker;
 import com.google.gerrit.server.events.Event;
 import com.google.gerrit.server.events.EventListener;
 import com.google.inject.Singleton;
-
 import com.googlesource.gerrit.plugins.kafka.message.Publisher;
-
+import java.util.Set;
+import java.util.concurrent.CopyOnWriteArraySet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Set;
-import java.util.concurrent.CopyOnWriteArraySet;
-
 @Singleton
 public class DefaultEventWorker implements EventListener, EventWorker {
-  private static final Logger log = LoggerFactory
-      .getLogger(DefaultEventWorker.class);
+  private static final Logger log = LoggerFactory.getLogger(DefaultEventWorker.class);
   private final Set<Publisher> publishers = new CopyOnWriteArraySet<>();
 
   @Override
@@ -53,8 +49,7 @@ public class DefaultEventWorker implements EventListener, EventWorker {
       try {
         publisher.onEvent(event);
       } catch (Exception e) {
-        log.error("Unable to process event " + e + " through publisher "
-            + publisher, e);
+        log.error("Unable to process event " + e + " through publisher " + publisher, e);
       }
     }
   }

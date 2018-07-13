@@ -17,13 +17,11 @@ package com.googlesource.gerrit.plugins.kafka;
 import com.google.gerrit.extensions.events.LifecycleListener;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-
 import com.googlesource.gerrit.plugins.kafka.config.KafkaProperties;
 import com.googlesource.gerrit.plugins.kafka.message.Publisher;
 import com.googlesource.gerrit.plugins.kafka.message.PublisherFactory;
 import com.googlesource.gerrit.plugins.kafka.worker.DefaultEventWorker;
 import com.googlesource.gerrit.plugins.kafka.worker.EventWorker;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +34,8 @@ public class Manager implements LifecycleListener {
   private final List<Publisher> publisherList = new ArrayList<>();
 
   @Inject
-  public Manager(DefaultEventWorker defaultEventWorker,
+  public Manager(
+      DefaultEventWorker defaultEventWorker,
       PublisherFactory publisherFactory,
       KafkaProperties properties) {
     this.defaultEventWorker = defaultEventWorker;

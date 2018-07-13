@@ -19,15 +19,13 @@ import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 
-
 public class KafkaPropertiesProvider implements Provider<KafkaProperties> {
 
   private final PluginConfigFactory configFactory;
   private final String pluginName;
 
   @Inject
-  public KafkaPropertiesProvider(PluginConfigFactory configFactory,
-      @PluginName String pluginName) {
+  public KafkaPropertiesProvider(PluginConfigFactory configFactory, @PluginName String pluginName) {
     this.configFactory = configFactory;
     this.pluginName = pluginName;
   }

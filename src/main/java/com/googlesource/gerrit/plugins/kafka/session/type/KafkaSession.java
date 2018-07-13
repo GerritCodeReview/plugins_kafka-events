@@ -16,7 +16,6 @@ package com.googlesource.gerrit.plugins.kafka.session.type;
 
 import com.googlesource.gerrit.plugins.kafka.config.KafkaProperties;
 import com.googlesource.gerrit.plugins.kafka.session.Session;
-
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
@@ -25,8 +24,7 @@ import org.slf4j.LoggerFactory;
 
 public final class KafkaSession implements Session {
 
-  private static final Logger LOGGER = LoggerFactory
-      .getLogger(KafkaSession.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(KafkaSession.class);
   private final KafkaProperties properties;
   private volatile Producer<String, String> producer;
 
@@ -49,16 +47,14 @@ public final class KafkaSession implements Session {
       return;
     }
 
-    LOGGER.info("Connect to {}...",
-        properties.getProperty("bootstrap.servers"));
+    LOGGER.info("Connect to {}...", properties.getProperty("bootstrap.servers"));
     setConnectionClassLoader();
     producer = new KafkaProducer<>(properties);
     LOGGER.info("Connection established.");
   }
 
   private void setConnectionClassLoader() {
-    Thread.currentThread().setContextClassLoader(
-        KafkaSession.class.getClassLoader());
+    Thread.currentThread().setContextClassLoader(KafkaSession.class.getClassLoader());
   }
 
   @Override
@@ -73,7 +69,6 @@ public final class KafkaSession implements Session {
 
   @Override
   public void publish(String messageBody) {
-    producer.send(new ProducerRecord<>(properties.getTopic(), "" + System.nanoTime(),
-        messageBody));
+    producer.send(new ProducerRecord<>(properties.getTopic(), "" + System.nanoTime(), messageBody));
   }
 }
