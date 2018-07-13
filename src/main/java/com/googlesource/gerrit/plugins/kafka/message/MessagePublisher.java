@@ -32,9 +32,9 @@ public class MessagePublisher implements Publisher {
 
   @Inject
   public MessagePublisher(
-      @Assisted KafkaProperties properties,
       SessionFactoryProvider sessionFactoryProvider,
-      Gson gson) {
+      Gson gson,
+      @Assisted KafkaProperties properties) {
     this.session = sessionFactoryProvider.get().create(properties);
     this.properties = properties;
     this.gson = gson;
