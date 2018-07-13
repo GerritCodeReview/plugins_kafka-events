@@ -19,7 +19,6 @@ import com.google.gerrit.server.events.EventListener;
 import com.google.gson.Gson;
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
-
 import com.googlesource.gerrit.plugins.kafka.config.KafkaProperties;
 import com.googlesource.gerrit.plugins.kafka.session.Session;
 import com.googlesource.gerrit.plugins.kafka.session.SessionFactoryProvider;

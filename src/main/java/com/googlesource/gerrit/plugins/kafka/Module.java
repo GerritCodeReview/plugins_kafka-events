@@ -20,7 +20,6 @@ import com.google.gerrit.extensions.registration.DynamicSet;
 import com.google.gerrit.server.events.EventListener;
 import com.google.gson.Gson;
 import com.google.inject.Singleton;
-
 import com.googlesource.gerrit.plugins.kafka.config.KafkaProperties;
 import com.googlesource.gerrit.plugins.kafka.config.KafkaPropertiesProvider;
 import com.googlesource.gerrit.plugins.kafka.message.GsonProvider;
@@ -36,8 +35,7 @@ class Module extends FactoryModule {
     bind(KafkaSessionFactory.class).toProvider(SessionFactoryProvider.class);
 
     factory(PublisherFactory.class);
-    bind(KafkaProperties.class).toProvider(KafkaPropertiesProvider.class)
-        .in(Singleton.class);
+    bind(KafkaProperties.class).toProvider(KafkaPropertiesProvider.class).in(Singleton.class);
     bind(Gson.class).toProvider(GsonProvider.class).in(Singleton.class);
 
     DynamicSet.bind(binder(), LifecycleListener.class).to(Manager.class);

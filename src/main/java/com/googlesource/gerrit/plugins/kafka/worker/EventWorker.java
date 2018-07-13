@@ -18,6 +18,8 @@ import com.googlesource.gerrit.plugins.kafka.message.Publisher;
 
 public interface EventWorker {
   void addPublisher(Publisher publisher);
+
   void removePublisher(Publisher publisher);
+
   void clear();
 }

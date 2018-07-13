@@ -16,7 +16,10 @@ package com.googlesource.gerrit.plugins.kafka.session;
 
 public interface Session {
   boolean isOpen();
+
   void connect();
+
   void disconnect();
+
   void publish(String message);
 }
