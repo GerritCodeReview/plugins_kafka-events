@@ -19,7 +19,6 @@ import com.google.gerrit.server.events.EventListener;
 import com.google.gson.Gson;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-
 import com.googlesource.gerrit.plugins.kafka.session.KafkaSession;
 
 @Singleton
@@ -29,9 +28,7 @@ public class KafkaPublisher implements EventListener {
   private final Gson gson;
 
   @Inject
-  public KafkaPublisher(
-      KafkaSession kafkaSession,
-      Gson gson) {
+  public KafkaPublisher(KafkaSession kafkaSession, Gson gson) {
     this.session = kafkaSession;
     this.gson = gson;
   }
