@@ -14,32 +14,28 @@
 
 package com.googlesource.gerrit.plugins.kafka;
 
+import com.google.gerrit.extensions.config.FactoryModule;
 import com.google.gerrit.extensions.events.LifecycleListener;
 import com.google.gerrit.extensions.registration.DynamicSet;
 import com.google.gerrit.server.events.EventListener;
 import com.google.gson.Gson;
-import com.google.inject.AbstractModule;
 import com.google.inject.Singleton;
-import com.google.inject.assistedinject.FactoryModuleBuilder;
 
 import com.googlesource.gerrit.plugins.kafka.config.KafkaProperties;
 import com.googlesource.gerrit.plugins.kafka.config.KafkaPropertiesProvider;
 import com.googlesource.gerrit.plugins.kafka.message.GsonProvider;
-import com.googlesource.gerrit.plugins.kafka.message.MessagePublisher;
-import com.googlesource.gerrit.plugins.kafka.message.Publisher;
 import com.googlesource.gerrit.plugins.kafka.message.PublisherFactory;
 import com.googlesource.gerrit.plugins.kafka.session.KafkaSessionFactory;
 import com.googlesource.gerrit.plugins.kafka.session.SessionFactoryProvider;
 import com.googlesource.gerrit.plugins.kafka.worker.DefaultEventWorker;
 
-class Module extends AbstractModule {
+class Module extends FactoryModule {
 
   @Override
   protected void configure() {
     bind(KafkaSessionFactory.class).toProvider(SessionFactoryProvider.class);
 
-    install(new FactoryModuleBuilder().implement(Publisher.class,
-        MessagePublisher.class).build(PublisherFactory.class));
+    factory(PublisherFactory.class);
     bind(KafkaProperties.class).toProvider(KafkaPropertiesProvider.class)
         .in(Singleton.class);
     bind(Gson.class).toProvider(GsonProvider.class).in(Singleton.class);
