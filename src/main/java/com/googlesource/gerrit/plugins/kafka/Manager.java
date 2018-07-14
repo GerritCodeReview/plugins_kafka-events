@@ -14,32 +14,26 @@
 
 package com.googlesource.gerrit.plugins.kafka;
 
+import java.util.ArrayList;
+import java.util.List;
 import com.google.gerrit.extensions.events.LifecycleListener;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-
 import com.googlesource.gerrit.plugins.kafka.config.KafkaProperties;
 import com.googlesource.gerrit.plugins.kafka.message.Publisher;
 import com.googlesource.gerrit.plugins.kafka.message.PublisherFactory;
-import com.googlesource.gerrit.plugins.kafka.worker.DefaultEventWorker;
-import com.googlesource.gerrit.plugins.kafka.worker.EventWorker;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Singleton
 public class Manager implements LifecycleListener {
 
-  private final EventWorker defaultEventWorker;
   private final PublisherFactory publisherFactory;
   private final KafkaProperties properties;
   private final List<Publisher> publisherList = new ArrayList<>();
 
   @Inject
-  public Manager(DefaultEventWorker defaultEventWorker,
+  public Manager(
       PublisherFactory publisherFactory,
       KafkaProperties properties) {
-    this.defaultEventWorker = defaultEventWorker;
     this.publisherFactory = publisherFactory;
     this.properties = properties;
   }
@@ -48,7 +42,6 @@ public class Manager implements LifecycleListener {
   public void start() {
     Publisher publisher = publisherFactory.create(properties);
     publisher.start();
-    defaultEventWorker.addPublisher(publisher);
     publisherList.add(publisher);
   }
 
@@ -56,7 +49,6 @@ public class Manager implements LifecycleListener {
   public void stop() {
     for (Publisher publisher : publisherList) {
       publisher.stop();
-      defaultEventWorker.removePublisher(publisher);
     }
     publisherList.clear();
   }
