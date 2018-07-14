@@ -68,10 +68,6 @@ public class Publisher implements EventListener {
     return available;
   }
 
-  public KafkaSession getSession() {
-    return session;
-  }
-
   public String getName() {
     return "Kafka";
   }
