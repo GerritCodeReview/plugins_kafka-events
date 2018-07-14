@@ -19,17 +19,20 @@ import com.google.gerrit.server.events.EventListener;
 import com.google.gson.Gson;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+
 import com.googlesource.gerrit.plugins.kafka.session.KafkaSession;
 
 @Singleton
-public class Publisher implements EventListener {
+public class KafkaPublisher implements EventListener {
 
   private final KafkaSession session;
   private final Gson gson;
   private boolean available = true;
 
   @Inject
-  public Publisher(KafkaSession kafkaSession, Gson gson) {
+  public KafkaPublisher(
+      KafkaSession kafkaSession,
+      Gson gson) {
     this.session = kafkaSession;
     this.gson = gson;
   }
@@ -63,10 +66,6 @@ public class Publisher implements EventListener {
 
   public boolean isEnabled() {
     return available;
-  }
-
-  public KafkaSession getSession() {
-    return session;
   }
 
   public String getName() {
