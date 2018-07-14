@@ -21,12 +21,12 @@ import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
 
 import com.googlesource.gerrit.plugins.kafka.config.KafkaProperties;
-import com.googlesource.gerrit.plugins.kafka.session.Session;
+import com.googlesource.gerrit.plugins.kafka.session.KafkaSession;
 import com.googlesource.gerrit.plugins.kafka.session.SessionFactoryProvider;
 
 public class Publisher implements EventListener {
 
-  private final Session session;
+  private final KafkaSession session;
   private final KafkaProperties properties;
   private final Gson gson;
   private boolean available = true;
@@ -72,7 +72,7 @@ public class Publisher implements EventListener {
     return available;
   }
 
-  public Session getSession() {
+  public KafkaSession getSession() {
     return session;
   }
 

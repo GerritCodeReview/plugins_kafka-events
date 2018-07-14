@@ -21,7 +21,7 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public final class KafkaSession implements Session {
+public final class KafkaSession {
 
   private static final Logger LOGGER = LoggerFactory
       .getLogger(KafkaSession.class);
@@ -32,7 +32,6 @@ public final class KafkaSession implements Session {
     this.properties = properties;
   }
 
-  @Override
   public boolean isOpen() {
     if (producer != null) {
       return true;
@@ -40,7 +39,6 @@ public final class KafkaSession implements Session {
     return false;
   }
 
-  @Override
   public void connect() {
     if (isOpen()) {
       LOGGER.debug("Already connected.");
@@ -59,7 +57,6 @@ public final class KafkaSession implements Session {
         KafkaSession.class.getClassLoader());
   }
 
-  @Override
   public void disconnect() {
     LOGGER.info("Disconnecting...");
     if (producer != null) {
@@ -69,7 +66,6 @@ public final class KafkaSession implements Session {
     producer = null;
   }
 
-  @Override
   public void publish(String messageBody) {
     producer.send(new ProducerRecord<>(properties.getTopic(), "" + System.nanoTime(),
         messageBody));
