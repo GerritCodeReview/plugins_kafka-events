@@ -23,14 +23,14 @@ import com.google.inject.Singleton;
 import com.googlesource.gerrit.plugins.kafka.session.KafkaSession;
 
 @Singleton
-public class Publisher implements EventListener {
+public class KafkaPublisher implements EventListener {
 
   private final KafkaSession session;
   private final Gson gson;
   private boolean available = true;
 
   @Inject
-  public Publisher(
+  public KafkaPublisher(
       KafkaSession kafkaSession,
       Gson gson) {
     this.session = kafkaSession;

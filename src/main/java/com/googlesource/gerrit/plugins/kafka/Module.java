@@ -21,7 +21,7 @@ import com.google.gson.Gson;
 import com.google.inject.AbstractModule;
 import com.google.inject.Singleton;
 import com.googlesource.gerrit.plugins.kafka.publisher.GsonProvider;
-import com.googlesource.gerrit.plugins.kafka.publisher.Publisher;
+import com.googlesource.gerrit.plugins.kafka.publisher.KafkaPublisher;
 
 class Module extends AbstractModule {
 
@@ -29,6 +29,6 @@ class Module extends AbstractModule {
   protected void configure() {
     bind(Gson.class).toProvider(GsonProvider.class).in(Singleton.class);
     DynamicSet.bind(binder(), LifecycleListener.class).to(Manager.class);
-    DynamicSet.bind(binder(), EventListener.class).to(Publisher.class);
+    DynamicSet.bind(binder(), EventListener.class).to(KafkaPublisher.class);
   }
 }
