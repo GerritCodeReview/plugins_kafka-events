@@ -52,8 +52,4 @@ public class KafkaPublisher implements EventListener {
       session.publish(gson.toJson(event));
     }
   }
-
-  public String getName() {
-    return "Kafka";
-  }
 }
