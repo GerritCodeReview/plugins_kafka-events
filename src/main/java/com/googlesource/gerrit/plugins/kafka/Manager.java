@@ -14,8 +14,6 @@
 
 package com.googlesource.gerrit.plugins.kafka;
 
-import java.util.ArrayList;
-import java.util.List;
 import com.google.gerrit.extensions.events.LifecycleListener;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
@@ -26,30 +24,22 @@ import com.googlesource.gerrit.plugins.kafka.message.PublisherFactory;
 @Singleton
 public class Manager implements LifecycleListener {
 
-  private final PublisherFactory publisherFactory;
-  private final KafkaProperties properties;
-  private final List<Publisher> publisherList = new ArrayList<>();
+  private final Publisher publisher;
 
   @Inject
   public Manager(
       PublisherFactory publisherFactory,
       KafkaProperties properties) {
-    this.publisherFactory = publisherFactory;
-    this.properties = properties;
+    publisher = publisherFactory.create(properties);
   }
 
   @Override
   public void start() {
-    Publisher publisher = publisherFactory.create(properties);
     publisher.start();
-    publisherList.add(publisher);
   }
 
   @Override
   public void stop() {
-    for (Publisher publisher : publisherList) {
-      publisher.stop();
-    }
-    publisherList.clear();
+    publisher.stop();
   }
 }
