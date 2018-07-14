@@ -15,19 +15,24 @@
 package com.googlesource.gerrit.plugins.kafka.config;
 
 import com.google.common.base.CaseFormat;
+import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.server.config.PluginConfig;
+import com.google.gerrit.server.config.PluginConfigFactory;
+import com.google.inject.Inject;
 
 public class KafkaProperties extends java.util.Properties {
   private static final long serialVersionUID = 0L;
 
   private final String topic;
 
-  public KafkaProperties(PluginConfig config) {
+  @Inject
+  public KafkaProperties(PluginConfigFactory configFactory,
+      @PluginName String pluginName) {
     super();
     setDefaults();
-    applyConfig(config);
-
-    topic = config.getString("topic", "gerrit");
+    PluginConfig fromGerritConfig = configFactory.getFromGerritConfig(pluginName);
+    topic = fromGerritConfig.getString("topic", "gerrit");
+    applyConfig(fromGerritConfig);
   }
 
   private void setDefaults() {
