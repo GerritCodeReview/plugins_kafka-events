@@ -47,6 +47,10 @@ public final class KafkaSession {
     }
 
     LOGGER.info("Connect to {}...", properties.getProperty("bootstrap.servers"));
+    /* Need to make sure that the thread of the running connection uses
+     * the correct class loader otherwize you can endup with hard to debug
+     * ClassNotFoundExceptions
+     */
     setConnectionClassLoader();
     producer = new KafkaProducer<>(properties);
     LOGGER.info("Connection established.");
