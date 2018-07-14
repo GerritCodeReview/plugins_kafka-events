@@ -17,9 +17,7 @@ package com.googlesource.gerrit.plugins.kafka;
 import com.google.gerrit.extensions.events.LifecycleListener;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import com.googlesource.gerrit.plugins.kafka.config.KafkaProperties;
 import com.googlesource.gerrit.plugins.kafka.message.Publisher;
-import com.googlesource.gerrit.plugins.kafka.message.PublisherFactory;
 
 @Singleton
 public class Manager implements LifecycleListener {
@@ -27,10 +25,8 @@ public class Manager implements LifecycleListener {
   private final Publisher publisher;
 
   @Inject
-  public Manager(
-      PublisherFactory publisherFactory,
-      KafkaProperties properties) {
-    publisher = publisherFactory.create(properties);
+  public Manager(Publisher publisher) {
+    this.publisher = publisher;
   }
 
   @Override

@@ -16,7 +16,6 @@ package com.googlesource.gerrit.plugins.kafka.session;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import com.google.inject.assistedinject.Assisted;
 import com.googlesource.gerrit.plugins.kafka.config.KafkaProperties;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
@@ -33,7 +32,7 @@ public final class KafkaSession {
   private volatile Producer<String, String> producer;
 
   @Inject
-  public KafkaSession(@Assisted KafkaProperties properties) {
+  public KafkaSession(KafkaProperties properties) {
     this.properties = properties;
   }
 
