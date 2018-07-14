@@ -39,19 +39,41 @@ import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.apache.kafka.clients.producer.ProducerConfig;
 import org.junit.Test;
+import org.testcontainers.containers.KafkaContainer;
 
-/*
- * This tests assumes that Kafka server is running on: localhost:9092.
- * Alternatively, testcontainers library can be used to set up dockerized
- * Kafka instance from withing JUnit test.
- */
 @NoHttpd
 @TestPlugin(name = "kafka-events", sysModule = "com.googlesource.gerrit.plugins.kafka.Module")
 public class EventConsumerIT extends LightweightPluginDaemonTest {
+
+  private KafkaContainer kafka;
+
+  @Override
+  public void setUpTestPlugin() throws Exception {
+    try {
+      kafka = new KafkaContainer();
+      kafka.start();
+
+      // Bootstrap initialization of dockerized Kafka server in test environment
+      System.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, kafka.getBootstrapServers());
+    } catch (IllegalStateException e) {
+      fail("Cannot start container. Is docker daemon running?");
+    }
+
+    super.setUpTestPlugin();
+  }
+
+  @Override
+  public void tearDownTestPlugin() {
+    super.tearDownTestPlugin();
+    if (kafka != null) {
+      kafka.stop();
+    }
+  }
+
   @Test
   @UseLocalDisk
-  @GerritConfig(name = "plugin.kafka-events.bootstrapServers", value = "localhost:9092")
   @GerritConfig(name = "plugin.kafka-events.groupId", value = "test-consumer-group")
   @GerritConfig(
       name = "plugin.kafka-events.keyDeserializer",
