@@ -27,7 +27,6 @@ public class KafkaPublisher implements EventListener {
 
   private final KafkaSession session;
   private final Gson gson;
-  private boolean available = true;
 
   @Inject
   public KafkaPublisher(
@@ -40,32 +39,18 @@ public class KafkaPublisher implements EventListener {
   public void start() {
     if (!session.isOpen()) {
       session.connect();
-      available = true;
     }
   }
 
   public void stop() {
     session.disconnect();
-    available = false;
   }
 
   @Override
   public void onEvent(Event event) {
-    if (available && session.isOpen()) {
+    if (session.isOpen()) {
       session.publish(gson.toJson(event));
     }
-  }
-
-  public void enable() {
-    available = true;
-  }
-
-  public void disable() {
-    available = false;
-  }
-
-  public boolean isEnabled() {
-    return available;
   }
 
   public String getName() {
