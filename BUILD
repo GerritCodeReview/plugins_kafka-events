@@ -27,7 +27,9 @@ junit_tests(
     tags = ["kafka-events"],
     deps = [
         ":kafka-events__plugin_test_deps",
+        "//lib/testcontainers",
         "@kafka_client//jar",
+        "@testcontainers-kafka//jar",
     ],
 )
 
@@ -37,5 +39,7 @@ java_library(
     visibility = ["//visibility:public"],
     exports = PLUGIN_DEPS + PLUGIN_TEST_DEPS + [
         ":kafka-events__plugin",
+        "@testcontainers-kafka//jar",
+        "//lib/testcontainers",
     ],
 )

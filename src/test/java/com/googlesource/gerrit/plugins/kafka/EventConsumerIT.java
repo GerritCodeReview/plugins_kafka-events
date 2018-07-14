@@ -39,21 +39,41 @@ import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.apache.kafka.clients.producer.ProducerConfig;
 import org.junit.Test;
+import org.testcontainers.containers.KafkaContainer;
 
-/*
- * This tests assumes that Kafka server is running on: localhost:9092.
- * Alternatively, testcontainers library can be used to set up dockerized
- * Kafka instance from withing JUnit test.
- */
 @NoHttpd
 @TestPlugin(name = "kafka-events", sysModule = "com.googlesource.gerrit.plugins.kafka.Module")
 public class EventConsumerIT extends LightweightPluginDaemonTest {
   static final long KAFKA_POLL_TIMEOUT = 10000L;
 
+  private KafkaContainer kafka;
+
+  @Override
+  public void setUpTestPlugin() throws Exception {
+    try {
+      kafka = new KafkaContainer();
+      kafka.start();
+
+      System.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, kafka.getBootstrapServers());
+    } catch (IllegalStateException e) {
+      fail("Cannot start container. Is docker daemon running?");
+    }
+
+    super.setUpTestPlugin();
+  }
+
+  @Override
+  public void tearDownTestPlugin() {
+    super.tearDownTestPlugin();
+    if (kafka != null) {
+      kafka.stop();
+    }
+  }
+
   @Test
   @UseLocalDisk
-  @GerritConfig(name = "plugin.kafka-events.bootstrapServers", value = "localhost:9092")
   @GerritConfig(name = "plugin.kafka-events.groupId", value = "test-consumer-group")
   @GerritConfig(
       name = "plugin.kafka-events.keyDeserializer",
@@ -73,8 +93,8 @@ public class EventConsumerIT extends LightweightPluginDaemonTest {
     String expectedMessage = "Patch Set 1: Code-Review+1\n\nLGTM";
     assertThat(messages.get(1).message).isEqualTo(expectedMessage);
 
-    KafkaProperties kafkaProperties = kafkaProperties();
     List<String> events = new ArrayList<>();
+    KafkaProperties kafkaProperties = kafkaProperties();
     try (Consumer<String, String> consumer = new KafkaConsumer<>(kafkaProperties)) {
       consumer.subscribe(Collections.singleton(kafkaProperties.getTopic()));
       ConsumerRecords<String, String> records = consumer.poll(KAFKA_POLL_TIMEOUT);
