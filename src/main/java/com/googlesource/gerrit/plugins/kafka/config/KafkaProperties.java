@@ -14,6 +14,7 @@
 
 package com.googlesource.gerrit.plugins.kafka.config;
 
+import org.apache.kafka.common.serialization.StringSerializer;
 import com.google.common.base.CaseFormat;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.server.config.PluginConfig;
@@ -40,8 +41,8 @@ public class KafkaProperties extends java.util.Properties {
     put("batch.size", 16384);
     put("linger.ms", 1);
     put("buffer.memory", 33554432);
-    put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-    put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+    put("key.serializer", StringSerializer.class.getName());
+    put("value.serializer", StringSerializer.class.getName());
   }
 
   private void applyConfig(PluginConfig config) {
