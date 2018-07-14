@@ -20,8 +20,8 @@ import com.google.gerrit.server.events.EventListener;
 import com.google.gson.Gson;
 import com.google.inject.AbstractModule;
 import com.google.inject.Singleton;
-import com.googlesource.gerrit.plugins.kafka.message.GsonProvider;
-import com.googlesource.gerrit.plugins.kafka.message.Publisher;
+import com.googlesource.gerrit.plugins.kafka.publisher.GsonProvider;
+import com.googlesource.gerrit.plugins.kafka.publisher.Publisher;
 
 class Module extends AbstractModule {
 
