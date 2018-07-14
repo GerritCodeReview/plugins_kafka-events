@@ -51,14 +51,8 @@ public final class KafkaSession {
 
     LOGGER.info("Connect to {}...",
         properties.getProperty("bootstrap.servers"));
-    setConnectionClassLoader();
     producer = new KafkaProducer<>(properties);
     LOGGER.info("Connection established.");
-  }
-
-  private void setConnectionClassLoader() {
-    Thread.currentThread().setContextClassLoader(
-        KafkaSession.class.getClassLoader());
   }
 
   public void disconnect() {
