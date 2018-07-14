@@ -15,11 +15,15 @@
 package com.googlesource.gerrit.plugins.kafka.config;
 
 import com.google.common.base.CaseFormat;
+import com.google.common.base.Strings;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import java.util.UUID;
+import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 
 @Singleton
@@ -35,6 +39,7 @@ public class KafkaProperties extends java.util.Properties {
     PluginConfig fromGerritConfig = configFactory.getFromGerritConfig(pluginName);
     topic = fromGerritConfig.getString("topic", "gerrit");
     applyConfig(fromGerritConfig);
+    initDockerizedKafkaServer();
   }
 
   private void setDefaults() {
@@ -53,6 +58,20 @@ public class KafkaProperties extends java.util.Properties {
       String propName =
           CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_HYPHEN, name).replaceAll("-", ".");
       put(propName, value);
+    }
+  }
+
+  /**
+   * Bootstrap initialization of dockerized Kafka server environment
+   */
+  private void initDockerizedKafkaServer() {
+    String testBootstrapServer = System.getProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG);
+    if (!Strings.isNullOrEmpty(testBootstrapServer)) {
+      this.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, testBootstrapServer);
+      this.put(ProducerConfig.CLIENT_ID_CONFIG, UUID.randomUUID().toString());
+      this.put(ConsumerConfig.GROUP_ID_CONFIG, "tc-" + UUID.randomUUID());
+      this.put(ConsumerConfig.HEARTBEAT_INTERVAL_MS_CONFIG, "1000");
+      this.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
     }
   }
 
