@@ -17,15 +17,15 @@ package com.googlesource.gerrit.plugins.kafka;
 import com.google.gerrit.extensions.events.LifecycleListener;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import com.googlesource.gerrit.plugins.kafka.publisher.Publisher;
+import com.googlesource.gerrit.plugins.kafka.publisher.KafkaPublisher;
 
 @Singleton
 public class Manager implements LifecycleListener {
 
-  private final Publisher publisher;
+  private final KafkaPublisher publisher;
 
   @Inject
-  public Manager(Publisher publisher) {
+  public Manager(KafkaPublisher publisher) {
     this.publisher = publisher;
   }
 
