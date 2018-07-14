@@ -47,6 +47,7 @@ public class KafkaProperties extends java.util.Properties {
     put("buffer.memory", 33554432);
     put("key.serializer", KAFKA_STRING_SERIALIZER);
     put("value.serializer", KAFKA_STRING_SERIALIZER);
+    put("reconnect.backoff.ms", 5000L);
   }
 
   private void applyConfig(PluginConfig config) {
