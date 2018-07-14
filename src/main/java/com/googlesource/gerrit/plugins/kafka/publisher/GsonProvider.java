@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.googlesource.gerrit.plugins.kafka.message;
+package com.googlesource.gerrit.plugins.kafka.publisher;
 
 import com.google.common.base.Supplier;
 import com.google.gerrit.server.events.SupplierSerializer;
