@@ -14,6 +14,9 @@
 
 package com.googlesource.gerrit.plugins.kafka.session;
 
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
+import com.google.inject.assistedinject.Assisted;
 import com.googlesource.gerrit.plugins.kafka.config.KafkaProperties;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
@@ -21,6 +24,7 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+@Singleton
 public final class KafkaSession {
 
   private static final Logger LOGGER = LoggerFactory
@@ -28,7 +32,8 @@ public final class KafkaSession {
   private final KafkaProperties properties;
   private volatile Producer<String, String> producer;
 
-  public KafkaSession(KafkaProperties properties) {
+  @Inject
+  public KafkaSession(@Assisted KafkaProperties properties) {
     this.properties = properties;
   }
 

@@ -26,15 +26,13 @@ import com.googlesource.gerrit.plugins.kafka.config.KafkaPropertiesProvider;
 import com.googlesource.gerrit.plugins.kafka.message.GsonProvider;
 import com.googlesource.gerrit.plugins.kafka.message.PublisherFactory;
 import com.googlesource.gerrit.plugins.kafka.session.KafkaSessionFactory;
-import com.googlesource.gerrit.plugins.kafka.session.SessionFactoryProvider;
 import com.googlesource.gerrit.plugins.kafka.worker.DefaultEventWorker;
 
 class Module extends FactoryModule {
 
   @Override
   protected void configure() {
-    bind(KafkaSessionFactory.class).toProvider(SessionFactoryProvider.class);
-
+    factory(KafkaSessionFactory.class);
     factory(PublisherFactory.class);
     bind(KafkaProperties.class).toProvider(KafkaPropertiesProvider.class)
         .in(Singleton.class);

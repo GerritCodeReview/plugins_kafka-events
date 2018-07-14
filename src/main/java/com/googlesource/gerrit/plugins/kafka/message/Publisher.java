@@ -22,7 +22,7 @@ import com.google.inject.assistedinject.Assisted;
 
 import com.googlesource.gerrit.plugins.kafka.config.KafkaProperties;
 import com.googlesource.gerrit.plugins.kafka.session.KafkaSession;
-import com.googlesource.gerrit.plugins.kafka.session.SessionFactoryProvider;
+import com.googlesource.gerrit.plugins.kafka.session.KafkaSessionFactory;
 
 public class Publisher implements EventListener {
 
@@ -33,10 +33,10 @@ public class Publisher implements EventListener {
 
   @Inject
   public Publisher(
-      SessionFactoryProvider sessionFactoryProvider,
+      KafkaSessionFactory kafkaSessionFactory,
       Gson gson,
       @Assisted KafkaProperties properties) {
-    this.session = sessionFactoryProvider.get().create(properties);
+    this.session = kafkaSessionFactory.create(properties);
     this.properties = properties;
     this.gson = gson;
   }

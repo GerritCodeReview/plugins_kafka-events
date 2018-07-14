@@ -16,8 +16,6 @@ package com.googlesource.gerrit.plugins.kafka.session;
 
 import com.googlesource.gerrit.plugins.kafka.config.KafkaProperties;
 
-public class KafkaSessionFactory {
-  public KafkaSession create(KafkaProperties properties) {
-    return new KafkaSession(properties);
-  }
+public interface KafkaSessionFactory {
+  KafkaSession create(KafkaProperties properties);
 }
