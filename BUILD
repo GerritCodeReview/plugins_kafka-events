@@ -1,4 +1,10 @@
-load("//tools/bzl:plugin.bzl", "gerrit_plugin")
+load("//tools/bzl:junit.bzl", "junit_tests")
+load(
+    "//tools/bzl:plugin.bzl",
+    "PLUGIN_DEPS",
+    "PLUGIN_TEST_DEPS",
+    "gerrit_plugin",
+)
 
 gerrit_plugin(
     name = "kafka-events",
@@ -12,5 +18,24 @@ gerrit_plugin(
     resources = glob(["src/main/resources/**/*"]),
     deps = [
         "@kafka_client//jar",
+    ],
+)
+
+junit_tests(
+    name = "kafka_events_tests",
+    srcs = glob(["src/test/java/**/*.java"]),
+    tags = ["kafka-events"],
+    deps = [
+        ":kafka-events__plugin_test_deps",
+        "@kafka_client//jar",
+    ],
+)
+
+java_library(
+    name = "kafka-events__plugin_test_deps",
+    testonly = 1,
+    visibility = ["//visibility:public"],
+    exports = PLUGIN_DEPS + PLUGIN_TEST_DEPS + [
+        ":kafka-events__plugin",
     ],
 )
