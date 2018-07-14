@@ -12,11 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.googlesource.gerrit.plugins.kafka.session.type;
+package com.googlesource.gerrit.plugins.kafka.session;
 
 import com.googlesource.gerrit.plugins.kafka.config.KafkaProperties;
-import com.googlesource.gerrit.plugins.kafka.session.Session;
-
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
