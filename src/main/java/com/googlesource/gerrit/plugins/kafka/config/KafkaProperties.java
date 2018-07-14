@@ -19,7 +19,9 @@ import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 
+@Singleton
 public class KafkaProperties extends java.util.Properties {
   private static final long serialVersionUID = 0L;
 
