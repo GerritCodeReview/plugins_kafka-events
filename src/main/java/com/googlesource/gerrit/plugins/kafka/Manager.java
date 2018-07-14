@@ -17,7 +17,7 @@ package com.googlesource.gerrit.plugins.kafka;
 import com.google.gerrit.extensions.events.LifecycleListener;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import com.googlesource.gerrit.plugins.kafka.message.Publisher;
+import com.googlesource.gerrit.plugins.kafka.publish.Publisher;
 
 @Singleton
 public class Manager implements LifecycleListener {
