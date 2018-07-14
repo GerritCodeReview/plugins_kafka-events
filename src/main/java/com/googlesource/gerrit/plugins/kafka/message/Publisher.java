@@ -18,26 +18,19 @@ import com.google.gerrit.server.events.Event;
 import com.google.gerrit.server.events.EventListener;
 import com.google.gson.Gson;
 import com.google.inject.Inject;
-import com.google.inject.assistedinject.Assisted;
-
-import com.googlesource.gerrit.plugins.kafka.config.KafkaProperties;
+import com.google.inject.Singleton;
 import com.googlesource.gerrit.plugins.kafka.session.KafkaSession;
-import com.googlesource.gerrit.plugins.kafka.session.KafkaSessionFactory;
 
+@Singleton
 public class Publisher implements EventListener {
 
   private final KafkaSession session;
-  private final KafkaProperties properties;
   private final Gson gson;
   private boolean available = true;
 
   @Inject
-  public Publisher(
-      KafkaSessionFactory kafkaSessionFactory,
-      Gson gson,
-      @Assisted KafkaProperties properties) {
-    this.session = kafkaSessionFactory.create(properties);
-    this.properties = properties;
+  public Publisher(KafkaSession kafkaSession, Gson gson) {
+    this.session = kafkaSession;
     this.gson = gson;
   }
 
@@ -74,10 +67,6 @@ public class Publisher implements EventListener {
 
   public KafkaSession getSession() {
     return session;
-  }
-
-  public KafkaProperties getProperties() {
-    return properties;
   }
 
   public String getName() {

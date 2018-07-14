@@ -15,19 +15,23 @@
 package com.googlesource.gerrit.plugins.kafka.config;
 
 import com.google.common.base.CaseFormat;
+import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.server.config.PluginConfig;
+import com.google.gerrit.server.config.PluginConfigFactory;
+import com.google.inject.Inject;
 
 public class KafkaProperties extends java.util.Properties {
   private static final long serialVersionUID = 0L;
 
   private final String topic;
 
-  public KafkaProperties(PluginConfig config) {
+  @Inject
+  public KafkaProperties(PluginConfigFactory configFactory, @PluginName String pluginName) {
     super();
     setDefaults();
-    applyConfig(config);
-
-    topic = config.getString("topic", "gerrit");
+    PluginConfig fromGerritConfig = configFactory.getFromGerritConfig(pluginName);
+    topic = fromGerritConfig.getString("topic", "gerrit");
+    applyConfig(fromGerritConfig);
   }
 
   private void setDefaults() {
@@ -36,18 +40,15 @@ public class KafkaProperties extends java.util.Properties {
     put("batch.size", 16384);
     put("linger.ms", 1);
     put("buffer.memory", 33554432);
-    put("key.serializer",
-        "org.apache.kafka.common.serialization.StringSerializer");
-    put("value.serializer",
-        "org.apache.kafka.common.serialization.StringSerializer");
+    put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+    put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
   }
 
   private void applyConfig(PluginConfig config) {
     for (String name : config.getNames()) {
       Object value = config.getString(name);
       String propName =
-          CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_HYPHEN, name).replaceAll(
-              "-", ".");
+          CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_HYPHEN, name).replaceAll("-", ".");
       put(propName, value);
     }
   }
