@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b18c738a_35ee970e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/session/KafkaSession.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-07-16T22:15:32Z",
+      "side": 1,
+      "message": "We don\u0027t need the @Assisted here because KafkaProperties are already injected and available in the global Guice context of the plugin.",
+      "range": {
+        "startLine": 34,
+        "startChar": 22,
+        "endLine": 34,
+        "endChar": 32
+      },
+      "revId": "64ef5c283f756835e751de26d2b5273300ffa611",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07b6eb1a_b7cc1914",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/session/KafkaSessionFactory.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-07-16T22:15:32Z",
+      "side": 1,
+      "message": "Still overkill: just define a KafkaSession provider that gets the KafkaProperties via default injection.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 50
+      },
+      "revId": "64ef5c283f756835e751de26d2b5273300ffa611",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
