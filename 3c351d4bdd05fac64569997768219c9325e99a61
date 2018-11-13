@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ef8677e_5892a9d2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/Manager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-11-13T21:55:53Z",
+      "side": 1,
+      "message": "This sounds overkill to me: why using a publisherFactory with an assisted injection that, at the end of the day, is coming from a Guice injection?",
+      "range": {
+        "startLine": 33,
+        "startChar": 16,
+        "endLine": 33,
+        "endChar": 51
+      },
+      "revId": "3c351d4bdd05fac64569997768219c9325e99a61",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
