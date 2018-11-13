@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "16f0a843_8516dfb9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-11-13T22:44:19Z",
+      "side": 1,
+      "message": "Just replace all of this with:\n  docker run -p 2181:2181 -p 9092:9092 -d -e ADVERTISED_HOST\u003d127.0.1 -e ADVERTISED_PORT\u003d9092 spotify/kafka",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 54
+      },
+      "revId": "4c9d57d0a72dafa33892a968c4e2032a3621f119",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6478da06_a386dc0a",
+        "filename": "BUILD",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-11-13T22:44:19Z",
+      "side": 1,
+      "message": "reviewers?",
+      "range": {
+        "startLine": 27,
+        "startChar": 13,
+        "endLine": 27,
+        "endChar": 22
+      },
+      "revId": "4c9d57d0a72dafa33892a968c4e2032a3621f119",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
