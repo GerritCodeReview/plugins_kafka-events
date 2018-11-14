@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57a6a0b0_457e300b",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/kafka/EventConsumerIT.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-11-14T06:09:11Z",
+      "side": 1,
+      "message": "This is bad: we should not wait forever, otherwise instead of a failing tests we will have stalled build.",
+      "range": {
+        "startLine": 78,
+        "startChar": 62,
+        "endLine": 78,
+        "endChar": 76
+      },
+      "revId": "0117c5bcfeaef355891d2173248db07a6b1a2d04",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
