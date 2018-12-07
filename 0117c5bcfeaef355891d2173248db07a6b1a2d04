@@ -22,6 +22,30 @@
       "revId": "0117c5bcfeaef355891d2173248db07a6b1a2d04",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7483d782_cdcd806a",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/kafka/EventConsumerIT.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2018-12-07T22:04:36Z",
+      "side": 1,
+      "message": "After you\u0027ve replaced Long.MAX_VALUE with 1000L constant, that test is failing for me: events are empty. If I change it to 10 seconds, it works.",
+      "parentUuid": "57a6a0b0_457e300b",
+      "range": {
+        "startLine": 78,
+        "startChar": 62,
+        "endLine": 78,
+        "endChar": 76
+      },
+      "revId": "0117c5bcfeaef355891d2173248db07a6b1a2d04",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
