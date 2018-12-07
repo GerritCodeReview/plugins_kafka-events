@@ -22,6 +22,30 @@
       "revId": "80dc60cd262dabadef6536e3d12c35f55eabb838",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "748aa007_3b1adf4d",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/kafka/EventConsumerIT.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2018-12-07T22:06:02Z",
+      "side": 1,
+      "message": "What branch were you running this? I\u0027m testing it on master, and there are 6 events. So may be the parent change needs to be adapted as well from 3 events to 6 events.",
+      "parentUuid": "c288b5f4_114f6114",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 34
+      },
+      "revId": "80dc60cd262dabadef6536e3d12c35f55eabb838",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
