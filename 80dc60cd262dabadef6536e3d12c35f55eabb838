@@ -46,6 +46,30 @@
       "revId": "80dc60cd262dabadef6536e3d12c35f55eabb838",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77105cf9_e7358df8",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/kafka/EventConsumerIT.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-12-07T23:20:39Z",
+      "side": 1,
+      "message": "Good point, now it makes more sense :-)",
+      "parentUuid": "748aa007_3b1adf4d",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 34
+      },
+      "revId": "80dc60cd262dabadef6536e3d12c35f55eabb838",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
