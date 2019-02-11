@@ -17,6 +17,7 @@ package com.googlesource.gerrit.plugins.kafka;
 import static com.google.common.truth.Truth.assertThat;
 
 import com.google.common.base.Supplier;
+import com.google.common.collect.Iterables;
 import com.google.gerrit.acceptance.GerritConfig;
 import com.google.gerrit.acceptance.LightweightPluginDaemonTest;
 import com.google.gerrit.acceptance.NoHttpd;
@@ -103,16 +104,16 @@ public class EventConsumerIT extends LightweightPluginDaemonTest {
       }
     }
 
-    // The received 6 events in order:
-    //
+    // There are 6 events are received in the following order:
     // 1. refUpdate:        ref: refs/sequences/changes
     // 2. refUpdate:        ref: refs/changes/01/1/1
     // 3. refUpdate:        ref: refs/changes/01/1/meta
     // 4. patchset-created: ref: refs/changes/01/1/1
-    // 5. refUpdate:        ref: refs/changes/01/1/meta"
+    // 5. refUpdate:        ref: refs/changes/01/1/meta
     // 6. comment-added:    ref: refs/heads/master
+
     assertThat(events).hasSize(6);
-    String commentAddedEventJson = events.get(5);
+    String commentAddedEventJson = Iterables.getLast(events);
 
     Gson gson =
         new GsonBuilder()
