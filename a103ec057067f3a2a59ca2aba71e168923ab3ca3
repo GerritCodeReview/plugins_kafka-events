@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b5650d36_668c6eea",
+        "filename": "docker-compose.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1065251
+      },
+      "writtenOn": "2019-02-11T17:14:57Z",
+      "side": 1,
+      "message": "Should we unify the infrastructure / environment setup into a single repo?\nI currently have something equivalent to this, to setup a local and google cloud environment here: tiago-palma/gerrit-multisite\nShould we move everything here?",
+      "revId": "a103ec057067f3a2a59ca2aba71e168923ab3ca3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
