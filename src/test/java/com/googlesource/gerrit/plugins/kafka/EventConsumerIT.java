@@ -103,16 +103,13 @@ public class EventConsumerIT extends LightweightPluginDaemonTest {
       }
     }
 
-    // The received 6 events in order:
+    // The received 3 events in order:
     //
-    // 1. refUpdate:        ref: refs/sequences/changes
-    // 2. refUpdate:        ref: refs/changes/01/1/1
-    // 3. refUpdate:        ref: refs/changes/01/1/meta
-    // 4. patchset-created: ref: refs/changes/01/1/1
-    // 5. refUpdate:        ref: refs/changes/01/1/meta"
-    // 6. comment-added:    ref: refs/heads/master
-    assertThat(events).hasSize(6);
-    String commentAddedEventJson = events.get(5);
+    // 1. RefUpdatedEvent
+    // 2. PatchSetCreatedEvent
+    // 3. CommentAddedEvent
+    assertThat(events).hasSize(3);
+    String commentAddedEventJson = events.get(2);
 
     Gson gson =
         new GsonBuilder()
