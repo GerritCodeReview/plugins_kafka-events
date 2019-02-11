@@ -9,6 +9,6 @@ def external_plugin_deps():
 
     maven_jar(
         name = "testcontainers-kafka",
-        artifact = "org.testcontainers:kafka:1.8.0",
-        sha1 = "1d6f0a529dd87bc66bc68a09b8b58ed17ebf33f6",
+        artifact = "org.testcontainers:kafka:1.10.6",
+        sha1 = "5984e31306bd6c84a36092cdd19e0ef7e2268d98",
     )
