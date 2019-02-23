@@ -33,6 +33,21 @@ junit_tests(
     ],
 )
 
+junit_tests(
+    name = "kafka_events_tests",
+    srcs = glob(["src/test/java/**/*.java"]),
+    tags = [
+        "docker",
+        "kafka-events",
+    ],
+    deps = [
+        ":kafka-events__plugin_test_deps",
+        "//lib/testcontainers",
+        "@kafka_client//jar",
+        "@testcontainers-kafka//jar",
+    ],
+)
+
 java_library(
     name = "kafka-events__plugin_test_deps",
     testonly = 1,
