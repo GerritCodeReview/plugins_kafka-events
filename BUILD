@@ -24,7 +24,10 @@ gerrit_plugin(
 junit_tests(
     name = "kafka_events_tests",
     srcs = glob(["src/test/java/**/*.java"]),
-    tags = ["kafka-events"],
+    tags = [
+        "docker",
+        "kafka-events",
+    ],
     deps = [
         ":kafka-events__plugin_test_deps",
         "//lib/testcontainers",
