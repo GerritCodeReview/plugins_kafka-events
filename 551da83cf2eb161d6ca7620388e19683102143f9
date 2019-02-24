@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "439b7a06_ad0f364f",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-02-24T00:20:23Z",
+      "side": 1,
+      "message": "Why is the junit_tests rule repeated?  Can\u0027t the tag be added in the existing rule at L27?",
+      "range": {
+        "startLine": 36,
+        "startChar": 1,
+        "endLine": 49,
+        "endChar": 1
+      },
+      "revId": "551da83cf2eb161d6ca7620388e19683102143f9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
