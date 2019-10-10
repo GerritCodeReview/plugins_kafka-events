@@ -11,13 +11,14 @@ gerrit_plugin(
     srcs = glob(["src/main/java/**/*.java"]),
     manifest_entries = [
         "Gerrit-PluginName: kafka-events",
-        "Gerrit-Module: com.googlesource.gerrit.plugins.kafka.Module",
+        "Gerrit-Module: com.googlesource.gerrit.plugins.kafka.broker.KafkaBrokerModule",
         "Implementation-Title: Gerrit Apache Kafka plugin",
         "Implementation-URL: https://gerrit.googlesource.com/plugins/kafka-events",
     ],
     resources = glob(["src/main/resources/**/*"]),
     deps = [
-        "@kafka_client//jar",
+        "@kafka-client//jar",
+        "@events-broker//jar",
     ],
 )
 
@@ -28,7 +29,8 @@ junit_tests(
     deps = [
         ":kafka-events__plugin_test_deps",
         "//lib/testcontainers",
-        "@kafka_client//jar",
+        "@kafka-client//jar",
+        "@events-broker//jar",
         "@testcontainers-kafka//jar",
     ],
 )
