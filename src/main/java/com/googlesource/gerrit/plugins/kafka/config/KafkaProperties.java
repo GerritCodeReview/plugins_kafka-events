@@ -79,4 +79,8 @@ public class KafkaProperties extends java.util.Properties {
   public String getTopic() {
     return topic;
   }
+
+  public String getBootstrapServers() {
+    return getProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG);
+  }
 }

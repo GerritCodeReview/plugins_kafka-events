@@ -16,7 +16,7 @@ package com.googlesource.gerrit.plugins.kafka;
 
 import static com.google.common.truth.Truth.assertThat;
 
-import com.google.common.base.Supplier;
+import com.gerritforge.gerrit.eventbroker.EventGsonProvider;
 import com.google.common.collect.Iterables;
 import com.google.gerrit.acceptance.GerritConfig;
 import com.google.gerrit.acceptance.LightweightPluginDaemonTest;
@@ -28,10 +28,7 @@ import com.google.gerrit.extensions.api.changes.ReviewInput;
 import com.google.gerrit.extensions.common.ChangeMessageInfo;
 import com.google.gerrit.server.events.CommentAddedEvent;
 import com.google.gerrit.server.events.Event;
-import com.google.gerrit.server.events.EventDeserializer;
-import com.google.gerrit.server.events.SupplierDeserializer;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.googlesource.gerrit.plugins.kafka.config.KafkaProperties;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -115,11 +112,7 @@ public class EventConsumerIT extends LightweightPluginDaemonTest {
     assertThat(events).hasSize(6);
     String commentAddedEventJson = Iterables.getLast(events);
 
-    Gson gson =
-        new GsonBuilder()
-            .registerTypeAdapter(Event.class, new EventDeserializer())
-            .registerTypeAdapter(Supplier.class, new SupplierDeserializer())
-            .create();
+    Gson gson = new EventGsonProvider().get();
     Event event = gson.fromJson(commentAddedEventJson, Event.class);
     assertThat(event).isInstanceOf(CommentAddedEvent.class);
 
