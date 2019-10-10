@@ -1,4 +1,4 @@
-// Copyright (C) 2016 The Android Open Source Project
+// Copyright (C) 2019 The Android Open Source Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,18 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.googlesource.gerrit.plugins.kafka.publish;
+package com.googlesource.gerrit.plugins.kafka.config;
 
-import com.google.common.base.Supplier;
-import com.google.gerrit.server.events.SupplierSerializer;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.inject.Provider;
+import com.google.gerrit.extensions.annotations.PluginName;
+import com.google.gerrit.server.config.PluginConfigFactory;
+import com.google.inject.Inject;
 
-public class GsonProvider implements Provider<Gson> {
+public class KafkaPublisherProperties extends KafkaProperties {
+  private static final long serialVersionUID = 0L;
 
-  @Override
-  public Gson get() {
-    return new GsonBuilder().registerTypeAdapter(Supplier.class, new SupplierSerializer()).create();
+  @Inject
+  public KafkaPublisherProperties(
+      PluginConfigFactory configFactory, @PluginName String pluginName) {
+    super(configFactory, pluginName);
   }
 }
