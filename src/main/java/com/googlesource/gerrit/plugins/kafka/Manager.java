@@ -14,23 +14,35 @@
 
 package com.googlesource.gerrit.plugins.kafka;
 
+import com.gerritforge.gerrit.eventbroker.BrokerApi;
+import com.gerritforge.gerrit.eventbroker.SourceAwareEventWrapper;
+import com.google.common.collect.Multimap;
 import com.google.gerrit.extensions.events.LifecycleListener;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.googlesource.gerrit.plugins.kafka.publish.KafkaPublisher;
+import java.util.function.Consumer;
 
 @Singleton
 public class Manager implements LifecycleListener {
 
   private final KafkaPublisher publisher;
+  private final Multimap<String, Consumer<SourceAwareEventWrapper>> consumers;
+  private final BrokerApi brokerApi;
 
   @Inject
-  public Manager(KafkaPublisher publisher) {
+  public Manager(
+      KafkaPublisher publisher,
+      Multimap<String, Consumer<SourceAwareEventWrapper>> consumers,
+      BrokerApi brokerApi) {
     this.publisher = publisher;
+    this.consumers = consumers;
+    this.brokerApi = brokerApi;
   }
 
   @Override
   public void start() {
+    consumers.forEach((topic, consumer) -> brokerApi.receiveAsync(topic, consumer));
     publisher.start();
   }
 
