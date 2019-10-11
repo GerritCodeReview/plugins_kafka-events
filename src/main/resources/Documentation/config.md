@@ -1,10 +1,13 @@
-Apache Kafka Configuration
-======================
 
-Some parameters can be configured using Gerrit config file.
+@PLUGIN@ Configuration
+=========================
 
-Sample config
----------------------
+Global configuration of the @PLUGIN@ plugin is done in the @PLUGIN@.config file in $GERRIT_SITE/etc.
+
+File '@PLUGIN@.config'
+--------------------
+
+## Sample configuration.
 
 ```
 [plugin "kafka-events"]
@@ -12,7 +15,7 @@ Sample config
 ```
 
 All the Apache Kafka properties configuration needs to
-be defined in gerrit.config using a lower camel-case notation.
+be defined using a lower camel-case notation.
 
 Example: bootstrapServers correspond to the Apache Kafka property
 bootstrap.servers.
