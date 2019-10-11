@@ -1,31 +1,45 @@
-Build
-=====
+# Build
 
 This plugin is built with Bazel.
 
-Build in Gerrit tree
---------------------
+## Build in Gerrit tree
 
-Clone or link this plugin to the plugins directory of Gerrit's source
-tree, and issue the command:
+Clone or link this plugin to the plugins directory of Gerrit's
+source tree. Put the external dependency Bazel build file into the
+Gerrit /plugins directory, replacing the existing empty one.
 
 ```
-  bazel build plugins/kafka-events
+  cd gerrit/plugins
+  ln -sf @PLUGIN@/external_plugin_deps.bzl .
+```
+
+From the Gerrit source tree issue the command:
+
+```
+  bazel build plugins/@PLUGIN@
 ```
 
 The output is created in
 
 ```
-  bazel-genfiles/plugins/kafka-events/kafka-events.jar
+  bazel-bin/plugins/@PLUGIN@/@PLUGIN@.jar
 ```
 
-This project can be imported into the Eclipse IDE.
-Add the plugin name to the `CUSTOM_PLUGINS` set in
-Gerrit core in `tools/bzl/plugins.bzl`, and execute:
+This project can be imported into the Eclipse IDE:
+Add the plugin name to the `CUSTOM_PLUGINS_TEST_DEPS`
+set in Gerrit core in `tools/bzl/plugins.bzl`,
+and execute:
 
 ```
   ./tools/eclipse/project.py
 ```
 
-How to build the Gerrit Plugin API is described in the [Gerrit
-documentation](../../../Documentation/dev-bazel.html#_extension_and_plugin_api_jar_files).
+To execute the tests run:
+
+```
+  bazel test --test_tag_filters=@PLUGIN@
+```
+
+[Back to @PLUGIN@ documentation index][index]
+
+[index]: index.html
