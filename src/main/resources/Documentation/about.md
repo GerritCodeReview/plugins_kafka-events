@@ -1,14 +1,13 @@
-This plugin publishes gerrit stream events to an Apache Kafka topic.
+This plugin is a Kafka implementation of the [broker api interface](https://github.com/GerritForge/events-broker)
+for Gerrit Code Review.
 
-It also provides a Kafka-based implementation of a generic
-[Events Broker Api](https://github.com/GerritForge/events-broker) which can be used by
-Gerrit and other plugins.
+When provided this plugin enables the propagation of Gerrit _indexes_,
+_caches_,  and _stream events_ to different systems, including CI/CD engines
+and other Gerrit master nodes.
 
-Use-cases
-=========
+# Use-cases
 
-CI/CD Validation
-----------------
+## CI/CD Validation
 
 Gerrit stream events can be published to the internal network where other subscribers
 can trigger automated jobs (e.g. CI/CD validation) for fetching the changes and validating
@@ -25,3 +24,24 @@ happening on every node thanks to the notification to a Kafka pub/sub topic.
 
 __NOTE__: This use-case would require the [multi-site plugin](https://gerrit.googlesource.com/plugins/multi-site)
 on each of the Gerrit masters that are part of the same multi-site cluster.
+
+# Setup
+
+* Install @PLUGIN@ plugin
+
+Install the kafka-events plugin into the `$GERRIT_SITE/plugins` directory.
+
+* Configure @PLUGIN@ plugin
+
+Update the `$GERRIT_SITE/etc/gerrit.config` with the
+following basic settings. Where `kafka-*` is the host that is running kafka
+and `9092` is the default kafka port, please change them accordingly:
+
+```
+[plugin "kafka-events"]
+  bootstrapServers = kafka-1:9092,kafka-2:9092,kafka-3:9092
+```
+
+For further information and supported options, refer to [config](config.md)
+documentation.
+

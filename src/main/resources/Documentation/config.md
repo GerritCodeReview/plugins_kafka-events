@@ -1,10 +1,11 @@
-Apache Kafka Configuration
-======================
 
-Some parameters can be configured using Gerrit config file.
+@PLUGIN@ Configuration
+=========================
 
-Sample config
----------------------
+Global configuration of the @PLUGIN@ plugin is done in the gerrit.config file under $GERRIT_SITE/etc.
+--------------------
+
+## Sample configuration.
 
 ```
 [plugin "kafka-events"]
@@ -12,7 +13,7 @@ Sample config
 ```
 
 All the Apache Kafka properties configuration needs to
-be defined in gerrit.config using a lower camel-case notation.
+be defined using a lower camel-case notation.
 
 Example: bootstrapServers correspond to the Apache Kafka property
 bootstrap.servers.
@@ -38,8 +39,11 @@ Additional properties
 
 `plugin.kafka-events.groupId`
 :	Kafka consumer group for receiving messages.
-	Default: Gerrit instance-id
 
 `plugin.kafka-events.pollingIntervalMs`
 :	Polling interval in msec for receiving messages from Kafka topic subscription.
 	Default: 1000
+
+`plugin.kafka-events.numberOfSubscribers`
+:	Number of threads available for subscribers.
+	Default: 4
