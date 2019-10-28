@@ -15,27 +15,40 @@
 package com.googlesource.gerrit.plugins.kafka.broker;
 
 import com.gerritforge.gerrit.eventbroker.BrokerApi;
+import com.gerritforge.gerrit.eventbroker.EventConsumer;
 import com.gerritforge.gerrit.eventbroker.SourceAwareEventWrapper;
+import com.google.common.flogger.FluentLogger;
 import com.google.gerrit.extensions.events.LifecycleListener;
+import com.google.gerrit.extensions.registration.DynamicSet;
 import com.google.gerrit.server.events.Event;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.googlesource.gerrit.plugins.kafka.consumer.KafkaEventSubscriber;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
 import java.util.function.Consumer;
 
 public class KafkaBrokerApi implements BrokerApi, LifecycleListener {
 
+  private static final FluentLogger logger = FluentLogger.forEnclosingClass();
+
   private final BrokerPublisher publisher;
   private final Provider<KafkaEventSubscriber> subscriberProvider;
   private List<KafkaEventSubscriber> subscribers;
+  private ExecutorService executor;
+  DynamicSet<EventConsumer> consumers;
 
   @Inject
   public KafkaBrokerApi(
-      BrokerPublisher publisher, Provider<KafkaEventSubscriber> subscriberProvider) {
+      BrokerPublisher publisher,
+      Provider<KafkaEventSubscriber> subscriberProvider,
+      @ConsumerExecutor ExecutorService executor,
+      DynamicSet<EventConsumer> consumers) {
     this.publisher = publisher;
     this.subscriberProvider = subscriberProvider;
+    this.executor = executor;
+    this.consumers = consumers;
     subscribers = new ArrayList<>();
   }
 
@@ -45,21 +58,48 @@ public class KafkaBrokerApi implements BrokerApi, LifecycleListener {
   }
 
   @Override
-  public void receiveAsync(String topic, Consumer<SourceAwareEventWrapper> eventConsumer) {
-    KafkaEventSubscriber subscriber = subscriberProvider.get();
-    synchronized (subscribers) {
-      subscribers.add(subscriber);
-    }
-    subscriber.subscribe(EventTopic.of(topic), eventConsumer);
+  public void receiveAsync(String topic, Consumer<SourceAwareEventWrapper> consumer) {
+    executor.execute(new ReceiverJob(topic, consumer));
   }
 
   @Override
-  public void start() {}
+  public void reconnect(List<EventConsumer> consumers) {
+    for (KafkaEventSubscriber subscriber : subscribers) {
+      subscriber.shutdown();
+    }
+    consumers.forEach(consumer -> receiveAsync(consumer.getTopic(), consumer.getConsumer()));
+  }
+
+  @Override
+  public void start() {
+    consumers.forEach(consumer -> receiveAsync(consumer.getTopic(), consumer.getConsumer()));
+  }
 
   @Override
   public void stop() {
     for (KafkaEventSubscriber subscriber : subscribers) {
       subscriber.shutdown();
+    }
+    logger.atInfo().log("shutting down consumers");
+    executor.shutdown();
+  }
+
+  private class ReceiverJob implements Runnable {
+    private String topic;
+    private Consumer<SourceAwareEventWrapper> consumer;
+
+    public ReceiverJob(String topic, Consumer<SourceAwareEventWrapper> consumer) {
+      this.topic = topic;
+      this.consumer = consumer;
+    }
+
+    @Override
+    public void run() {
+      KafkaEventSubscriber subscriber = subscriberProvider.get();
+      synchronized (subscribers) {
+        subscribers.add(subscriber);
+      }
+      subscriber.subscribe(EventTopic.of(topic), consumer);
     }
   }
 }

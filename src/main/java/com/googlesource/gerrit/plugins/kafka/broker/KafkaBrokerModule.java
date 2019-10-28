@@ -23,6 +23,8 @@ import com.google.inject.Scopes;
 import com.google.inject.Singleton;
 import com.google.inject.TypeLiteral;
 import com.googlesource.gerrit.plugins.kafka.consumer.KafkaEventDeserializer;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import org.apache.kafka.common.serialization.ByteArrayDeserializer;
 import org.apache.kafka.common.serialization.Deserializer;
 
@@ -31,6 +33,11 @@ public class KafkaBrokerModule extends LifecycleModule {
 
   @Override
   protected void configure() {
+
+    bind(ExecutorService.class)
+        .annotatedWith(ConsumerExecutor.class)
+        .toInstance(Executors.newFixedThreadPool(EventTopic.values().length));
+
     bind(new TypeLiteral<Deserializer<byte[]>>() {}).toInstance(new ByteArrayDeserializer());
     bind(new TypeLiteral<Deserializer<SourceAwareEventWrapper>>() {})
         .to(KafkaEventDeserializer.class);
@@ -38,6 +45,7 @@ public class KafkaBrokerModule extends LifecycleModule {
     listener().to(BrokerPublisher.class);
     bind(BrokerSession.class).to(KafkaSession.class);
     DynamicItem.bind(binder(), BrokerApi.class).to(KafkaBrokerApi.class).in(Scopes.SINGLETON);
+
     listener().to(KafkaBrokerApi.class);
 
     listener().to(Log4jMessageLogger.class);
