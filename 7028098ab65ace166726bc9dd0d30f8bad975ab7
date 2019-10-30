@@ -22,6 +22,30 @@
       "revId": "7028098ab65ace166726bc9dd0d30f8bad975ab7",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d639cd90_abc80dc7",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1083454
+      },
+      "writtenOn": "2019-10-30T23:20:37Z",
+      "side": 1,
+      "message": "Problem is that our kafka setting is different then the current one, so if we want to merge both  we have to add current settings to multi-site kafka.config. I\u0027m not sure if anyone is using current code. That\u0027s why I\u0027ve decided to first make the code from multi-site working and then in following change merge both(reuse existing code and merge configs)",
+      "parentUuid": "35513653_26616e27",
+      "range": {
+        "startLine": 14,
+        "startChar": 62,
+        "endLine": 14,
+        "endChar": 86
+      },
+      "revId": "7028098ab65ace166726bc9dd0d30f8bad975ab7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
