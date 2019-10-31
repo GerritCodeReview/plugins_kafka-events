@@ -46,6 +46,30 @@
       "revId": "7028098ab65ace166726bc9dd0d30f8bad975ab7",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30743ff1_0974c2d6",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2019-10-31T13:44:48Z",
+      "side": 1,
+      "message": "Sure, but we need to keep existing functionality working also.\nThat\u0027s why we should keep reading the current configuration file in the same way.",
+      "parentUuid": "d639cd90_abc80dc7",
+      "range": {
+        "startLine": 14,
+        "startChar": 62,
+        "endLine": 14,
+        "endChar": 86
+      },
+      "revId": "7028098ab65ace166726bc9dd0d30f8bad975ab7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
