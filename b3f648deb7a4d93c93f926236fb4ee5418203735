@@ -1,0 +1,169 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f23920ab_73e74865",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2019-10-31T18:33:50Z",
+      "side": 1,
+      "message": "small change, but is this related?",
+      "range": {
+        "startLine": 5,
+        "startChar": 21,
+        "endLine": 5,
+        "endChar": 22
+      },
+      "revId": "b3f648deb7a4d93c93f926236fb4ee5418203735",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c1bb0bd_a31ed1ff",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/broker/BrokerGson.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2019-10-31T18:33:50Z",
+      "side": 1,
+      "message": "Why do we need yet another BrokerGson converter in kafka-events?\nThere is already a Gson provider in Module.java:38",
+      "revId": "b3f648deb7a4d93c93f926236fb4ee5418203735",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ed7cc2f_352c9fde",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/broker/BrokerPublisher.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2019-10-31T18:33:50Z",
+      "side": 1,
+      "message": "A publisher already exists: KafkaPublisher.\nAre you planning to merge the two in a follow-up change?",
+      "revId": "b3f648deb7a4d93c93f926236fb4ee5418203735",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "893b7434_78209d8b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/broker/EventTopic.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2019-10-31T18:33:50Z",
+      "side": 1,
+      "message": "The name of the topics used by the multi-site plugin should not be leaked into the implementation of the broker.",
+      "revId": "b3f648deb7a4d93c93f926236fb4ee5418203735",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e84cd815_9ea1fc3e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/broker/GsonProvider.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2019-10-31T18:33:50Z",
+      "side": 1,
+      "message": "We already have a GsonProvider in com.googlesource.gerrit.plugins.kafka.publish",
+      "revId": "b3f648deb7a4d93c93f926236fb4ee5418203735",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49135dd2_ac98abb5",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/broker/KafkaBrokerModule.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2019-10-31T18:33:50Z",
+      "side": 1,
+      "message": "This is already one in Module.java",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 29
+      },
+      "revId": "b3f648deb7a4d93c93f926236fb4ee5418203735",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec2ab037_b510e5df",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/broker/KafkaConfiguration.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2019-10-31T18:33:50Z",
+      "side": 1,
+      "message": "KafkaConfiguration is already defined: do we really need another one?",
+      "revId": "b3f648deb7a4d93c93f926236fb4ee5418203735",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6931e2fe_d74ef08c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/broker/Log4jMessageLogger.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2019-10-31T18:33:50Z",
+      "side": 1,
+      "message": "The message logger should stay in the multi-site plugin, as we want consistent logging independently from the underlying broker implementation.",
+      "revId": "b3f648deb7a4d93c93f926236fb4ee5418203735",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80bef3c5_11625a07",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/broker/MessageLogger.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2019-10-31T18:33:50Z",
+      "side": 1,
+      "message": "This should stay in the multi-site plugin.",
+      "revId": "b3f648deb7a4d93c93f926236fb4ee5418203735",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
