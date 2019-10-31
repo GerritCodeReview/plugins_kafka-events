@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f8622fa6_1a7774a3",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2019-10-31T23:46:48Z",
+      "side": 1,
+      "message": "This isn\u0027t needed anymore: I have removed in the previous change all the parts that were in common with the multi-site plugin.",
+      "revId": "7dc9326b9dff05d8825322d79ba944cfc7735292",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "754e3bda_ab109bf6",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2019-10-31T23:46:48Z",
+      "side": 1,
+      "message": "This isn\u0027t needed anymore.",
+      "revId": "7dc9326b9dff05d8825322d79ba944cfc7735292",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
