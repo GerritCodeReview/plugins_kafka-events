@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f1280cb6_7d3c1ce6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/api/KafkaBrokerApi.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2019-11-02T20:34:45Z",
+      "side": 1,
+      "message": "This bug is addressed with Change-Id: Ic7bd63e9251a6.\nIt would make sense to merge the two changes together.",
+      "parentUuid": "32c73c57_6815df70",
+      "range": {
+        "startLine": 55,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 47
+      },
+      "revId": "7fa27bb5aa024dad0ffb433b7fd15807a36be1e4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "072e4f38_ff8e6403",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/subscribe/KafkaEventSubscriber.java",
         "patchSetId": 15
