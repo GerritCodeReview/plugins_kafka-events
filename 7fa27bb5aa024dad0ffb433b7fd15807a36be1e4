@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "61f39bdd_ec82d876",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/api/KafkaBrokerApi.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1083454
+      },
+      "writtenOn": "2019-11-12T05:18:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52c12738_4eaf44ca",
+      "range": {
+        "startLine": 55,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 47
+      },
+      "revId": "7fa27bb5aa024dad0ffb433b7fd15807a36be1e4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "072e4f38_ff8e6403",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/subscribe/KafkaEventSubscriber.java",
         "patchSetId": 15
@@ -117,6 +141,30 @@
       "revId": "7fa27bb5aa024dad0ffb433b7fd15807a36be1e4",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a65b299_ab11b51c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/subscribe/KafkaEventSubscriber.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1083454
+      },
+      "writtenOn": "2019-11-12T05:18:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "072e4f38_ff8e6403",
+      "range": {
+        "startLine": 73,
+        "startChar": 14,
+        "endLine": 73,
+        "endChar": 23
+      },
+      "revId": "7fa27bb5aa024dad0ffb433b7fd15807a36be1e4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
