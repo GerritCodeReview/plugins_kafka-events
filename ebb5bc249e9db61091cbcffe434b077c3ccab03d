@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "036563bf_e6fdb8a4",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2019-11-23T21:36:43Z",
+      "side": 1,
+      "message": "Why the original description wasn\u0027t good?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 30
+      },
+      "revId": "ebb5bc249e9db61091cbcffe434b077c3ccab03d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bd54595_ec9224fb",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2019-11-23T21:36:43Z",
+      "side": 1,
+      "message": "This is redundant IMHO, WDYT?",
+      "range": {
+        "startLine": 3,
+        "startChar": 31,
+        "endLine": 3,
+        "endChar": 45
+      },
+      "revId": "ebb5bc249e9db61091cbcffe434b077c3ccab03d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "084cc047_3b9305db",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2019-11-23T21:36:43Z",
+      "side": 1,
+      "message": "under?",
+      "range": {
+        "startLine": 5,
+        "startChar": 77,
+        "endLine": 5,
+        "endChar": 81
+      },
+      "revId": "ebb5bc249e9db61091cbcffe434b077c3ccab03d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
