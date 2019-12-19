@@ -69,4 +69,11 @@ public class KafkaBrokerApi implements BrokerApi {
         .map(s -> TopicSubscriber.topicSubscriber(s.getTopic(), s.getMessageProcessor()))
         .collect(Collectors.toSet());
   }
+
+  @Override
+  public void replayAllEvents(String topic) {
+    subscribers.stream()
+        .filter(subscriber -> topic.equals(subscriber.getTopic()))
+        .forEach(subscriber -> subscriber.resetOffset());
+  }
 }
