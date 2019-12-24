@@ -45,6 +45,30 @@
       "revId": "25b22c64a94e1badf0922f757ead74b16745c4fe",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b293f533_1afca646",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/config/KafkaSubscriberProperties.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1083454
+      },
+      "writtenOn": "2019-12-24T13:06:30Z",
+      "side": 1,
+      "message": "Yes kafka properties from gerrit.config should be in a lower camel-case notation. In multi-site plugin we always had this concept of KafkaProp- properties prefix. All properties prefixed with KafkaProp- were converted from camel case to dot separated:  String propName \u003d\n          CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_HYPHEN, name).replaceAll(\"-\", \".\");\n\nIn kafka-events plugin we merge multi-site code with existing one and we get rid of KafkaProp- prefix. Now all properties from kafka-events config section are converted from a lower camel-case notation to dot separated notation. After this conversion we are passing them to kafka producer/consumer. That\u0027s why here we have only access to already converted properties, so event if in config file this property name is \u0027numberOfSubscribers\u0027 here we have to use \u0027number.of.subscribers\u0027",
+      "parentUuid": "9ed12995_b910cadd",
+      "range": {
+        "startLine": 39,
+        "startChar": 38,
+        "endLine": 39,
+        "endChar": 59
+      },
+      "revId": "25b22c64a94e1badf0922f757ead74b16745c4fe",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
