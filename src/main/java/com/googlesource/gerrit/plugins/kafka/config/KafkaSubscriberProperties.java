@@ -33,10 +33,10 @@ public class KafkaSubscriberProperties extends KafkaProperties {
     super(configFactory, pluginName);
 
     this.pollingInterval =
-        Integer.parseInt(getProperty("pollingIntervalMs", DEFAULT_POLLING_INTERVAL_MS));
-    this.groupId = getProperty("groupId");
+        Integer.parseInt(getProperty("polling.interval.ms", DEFAULT_POLLING_INTERVAL_MS));
+    this.groupId = getProperty("group.id");
     this.numberOfSubscribers =
-        Integer.parseInt(getProperty("numberOfSubscribers", DEFAULT_NUMBER_OF_SUBSCRIBERS));
+        Integer.parseInt(getProperty("number.of.subscribers", DEFAULT_NUMBER_OF_SUBSCRIBERS));
   }
 
   public Integer getPollingInterval() {
