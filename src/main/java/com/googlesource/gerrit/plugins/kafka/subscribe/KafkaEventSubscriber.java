@@ -46,6 +46,7 @@ public class KafkaEventSubscriber {
   private java.util.function.Consumer<EventMessage> messageProcessor;
 
   private String topic;
+  private AtomicBoolean resetOffset = new AtomicBoolean(false);
 
   @Inject
   public KafkaEventSubscriber(
@@ -94,6 +95,10 @@ public class KafkaEventSubscriber {
     return topic;
   }
 
+  public void resetOffset() {
+    resetOffset.set(true);
+  }
+
   private class ReceiverJob implements Runnable {
 
     @Override
@@ -104,6 +109,9 @@ public class KafkaEventSubscriber {
     private void consume() {
       try {
         while (!closed.get()) {
+          if (resetOffset.getAndSet(false)) {
+            consumer.seekToBeginning(consumer.assignment());
+          }
           ConsumerRecords<byte[], byte[]> consumerRecords =
               consumer.poll(Duration.ofMillis(configuration.getPollingInterval()));
           consumerRecords.forEach(
