@@ -17,7 +17,9 @@ package com.googlesource.gerrit.plugins.kafka.config;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 
+@Singleton
 public class KafkaSubscriberProperties extends KafkaProperties {
   private static final long serialVersionUID = 1L;
   private static final String DEFAULT_POLLING_INTERVAL_MS = "1000";
