@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "58acf9ac_64ef59e6",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-01-09T09:46:42Z",
+      "side": 0,
+      "message": "This is the part that should stay.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 58
+      },
+      "revId": "488931f037ab58669a734fbd29b9ff2c78f23777",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
