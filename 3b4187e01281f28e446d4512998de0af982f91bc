@@ -22,6 +22,30 @@
       "revId": "3b4187e01281f28e446d4512998de0af982f91bc",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b69341b0_647e781d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/config/KafkaSubscriberProperties.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1083454
+      },
+      "writtenOn": "2020-01-13T14:01:54Z",
+      "side": 1,
+      "message": "I\u0027m not sure we can easily do that without larger refactoring. In kafka-events we have to modules, Module and KafkaApiModule. KafkaApiModule is getting this class as constructor parameter(so we cannot bind it here) and Module is getting KafkaApiModule as a constructor parameter:( so we cannot bind it here as well because it needs to be binded before KafkaApiModule initialisation.",
+      "parentUuid": "5b7ee29e_516503f4",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 10
+      },
+      "revId": "3b4187e01281f28e446d4512998de0af982f91bc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
