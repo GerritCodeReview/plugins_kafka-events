@@ -130,10 +130,13 @@ public class KafkaEventSubscriber {
         }
       } catch (WakeupException e) {
         // Ignore exception if closing
-        if (!closed.get()) throw e;
+        if (!closed.get()) {
+          logger.atSevere().withCause(e).log("Consumer loop of topic %s interrupted", topic);
+        }
       } catch (Exception e) {
         subscriberMetrics.incrementSubscriberFailedToPollMessages();
-        throw e;
+        logger.atSevere().withCause(e).log(
+            "Existing consumer loop of topic %s because of a non-recoverable exception", topic);
       } finally {
         consumer.close();
       }
