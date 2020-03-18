@@ -14,6 +14,7 @@
 
 package com.googlesource.gerrit.plugins.kafka.config;
 
+import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.CaseFormat;
 import com.google.common.base.Strings;
 import com.google.gerrit.extensions.annotations.PluginName;
@@ -41,6 +42,14 @@ public class KafkaProperties extends java.util.Properties {
     PluginConfig fromGerritConfig = configFactory.getFromGerritConfig(pluginName);
     topic = fromGerritConfig.getString("topic", "gerrit");
     applyConfig(fromGerritConfig);
+    initDockerizedKafkaServer();
+  }
+
+  @VisibleForTesting
+  public KafkaProperties() {
+    super();
+    setDefaults();
+    topic = "gerrit";
     initDockerizedKafkaServer();
   }
 
