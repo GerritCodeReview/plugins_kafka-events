@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "183996ae_a296b247",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/subscribe/KafkaEventSubscriber.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054778
+      },
+      "writtenOn": "2020-03-18T09:38:19Z",
+      "side": 1,
+      "message": "Since this case is quite important and we already have some integration tests, it should be easy to add a test for it. We can even do in a follow up change. WDYT?",
+      "revId": "72e288ad36c34736f29c60df26c489eaf38d08ed",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f7182a1_a09831f9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/subscribe/KafkaEventSubscriber.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1054778
+      },
+      "writtenOn": "2020-03-18T09:38:19Z",
+      "side": 1,
+      "message": "nit: Maybe call it receiverJob? I think the next line it will read better \"executor.execute(receiverJob)\"",
+      "range": {
+        "startLine": 92,
+        "startChar": 4,
+        "endLine": 92,
+        "endChar": 12
+      },
+      "revId": "72e288ad36c34736f29c60df26c489eaf38d08ed",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0436ea6_bf3e1ab6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/subscribe/KafkaEventSubscriber.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1054778
+      },
+      "writtenOn": "2020-03-18T09:38:19Z",
+      "side": 1,
+      "message": "Why dividing by 2?",
+      "range": {
+        "startLine": 173,
+        "startChar": 10,
+        "endLine": 173,
+        "endChar": 48
+      },
+      "revId": "72e288ad36c34736f29c60df26c489eaf38d08ed",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
