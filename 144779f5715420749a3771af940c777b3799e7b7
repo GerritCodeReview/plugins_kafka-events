@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bfa5b559_53771bc0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/config/KafkaSubscriberProperties.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1054778
+      },
+      "writtenOn": "2020-03-18T09:46:29Z",
+      "side": 1,
+      "message": "I believe you need 6:\ngerrit_stream_events\ngerrit_project_list\ngerrit_cache\ngerrit_web_session\ngerrit_index\nbatch_indexing",
+      "range": {
+        "startLine": 24,
+        "startChar": 30,
+        "endLine": 24,
+        "endChar": 59
+      },
+      "revId": "144779f5715420749a3771af940c777b3799e7b7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
