@@ -55,6 +55,52 @@
     },
     {
       "key": {
+        "uuid": "ace1c110_37b25fbd",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/subscribe/KafkaEventSubscriber.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1083454
+      },
+      "writtenOn": "2020-03-23T11:25:59Z",
+      "side": 1,
+      "message": "this code does nothing now",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 78,
+        "endChar": 47
+      },
+      "revId": "72e288ad36c34736f29c60df26c489eaf38d08ed",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21bf3268_295bfaec",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/subscribe/KafkaEventSubscriber.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1083454
+      },
+      "writtenOn": "2020-03-23T11:25:59Z",
+      "side": 1,
+      "message": "We were changing context class loader when we were creating consumer. See L73. I\u0027m not sure why we were doing that at first place but let\u0027s keep it for now",
+      "range": {
+        "startLine": 90,
+        "startChar": 3,
+        "endLine": 90,
+        "endChar": 80
+      },
+      "revId": "72e288ad36c34736f29c60df26c489eaf38d08ed",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0f7182a1_a09831f9",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/subscribe/KafkaEventSubscriber.java",
         "patchSetId": 1
