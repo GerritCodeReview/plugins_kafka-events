@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "6dd87d7e_fbddfa93",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-03-27T23:44:39Z",
+      "side": 1,
+      "message": "Yeah, this plugin may be used standalone without the multi-site plugin. Having the features of the multi-site listed in the kafka-events plugin is quite misleading.",
+      "parentUuid": "29a96a31_352baf94",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 30
+      },
+      "revId": "ebb5bc249e9db61091cbcffe434b077c3ccab03d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1bd54595_ec9224fb",
         "filename": "src/main/resources/Documentation/build.md",
         "patchSetId": 3
