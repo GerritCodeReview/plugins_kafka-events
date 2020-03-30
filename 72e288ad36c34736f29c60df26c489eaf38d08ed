@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "5b5b0fa1_d0f5b9d8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/subscribe/KafkaEventSubscriber.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-03-30T15:25:43Z",
+      "side": 1,
+      "message": "Let me try.",
+      "parentUuid": "7c719da0_4511f3ab",
+      "revId": "72e288ad36c34736f29c60df26c489eaf38d08ed",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ace1c110_37b25fbd",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/subscribe/KafkaEventSubscriber.java",
         "patchSetId": 1
@@ -75,6 +93,30 @@
       "revId": "72e288ad36c34736f29c60df26c489eaf38d08ed",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b404bd0_a88f8a90",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/subscribe/KafkaEventSubscriber.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-03-30T15:25:43Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "ace1c110_37b25fbd",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 78,
+        "endChar": 47
+      },
+      "revId": "72e288ad36c34736f29c60df26c489eaf38d08ed",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -101,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "cfce5ee9_1579348b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/subscribe/KafkaEventSubscriber.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-03-30T15:25:43Z",
+      "side": 1,
+      "message": "True, we should move it here then.",
+      "parentUuid": "21bf3268_295bfaec",
+      "range": {
+        "startLine": 90,
+        "startChar": 3,
+        "endLine": 90,
+        "endChar": 80
+      },
+      "revId": "72e288ad36c34736f29c60df26c489eaf38d08ed",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f7182a1_a09831f9",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/subscribe/KafkaEventSubscriber.java",
         "patchSetId": 1
@@ -124,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "04b1a362_d7d8d0a1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/subscribe/KafkaEventSubscriber.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-03-30T15:25:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0f7182a1_a09831f9",
+      "range": {
+        "startLine": 92,
+        "startChar": 4,
+        "endLine": 92,
+        "endChar": 12
+      },
+      "revId": "72e288ad36c34736f29c60df26c489eaf38d08ed",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0436ea6_bf3e1ab6",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/subscribe/KafkaEventSubscriber.java",
         "patchSetId": 1
@@ -144,6 +234,30 @@
       "revId": "72e288ad36c34736f29c60df26c489eaf38d08ed",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce626dc4_0869f394",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/subscribe/KafkaEventSubscriber.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-03-30T15:25:43Z",
+      "side": 1,
+      "message": "Because if I want a random value with mean value of DELAY_RECONNECT_AFTER_FAILURE_MSEC, I need to have random values between 0.5 * DELAY_RECONNECT_AFTER_FAILURE_MSEC and 1.5 * DELAY_RECONNECT_AFTER_FAILURE_MSEC",
+      "parentUuid": "a0436ea6_bf3e1ab6",
+      "range": {
+        "startLine": 173,
+        "startChar": 10,
+        "endLine": 173,
+        "endChar": 48
+      },
+      "revId": "72e288ad36c34736f29c60df26c489eaf38d08ed",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
