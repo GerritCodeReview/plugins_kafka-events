@@ -46,6 +46,30 @@
       "revId": "144779f5715420749a3771af940c777b3799e7b7",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa8d8586_1eaeedf7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/config/KafkaSubscriberProperties.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-04-16T22:23:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfd84af8_5ef94194",
+      "range": {
+        "startLine": 24,
+        "startChar": 30,
+        "endLine": 24,
+        "endChar": 59
+      },
+      "revId": "144779f5715420749a3771af940c777b3799e7b7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
