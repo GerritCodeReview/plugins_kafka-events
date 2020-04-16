@@ -141,7 +141,7 @@ public class KafkaBrokerApiTest {
   public static void beforeClass() throws Exception {
     kafka = new TestKafkaContainer();
     kafka.start();
-    System.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9093");
+    System.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, kafka.getBootstrapServers());
 
     Injector baseInjector = Guice.createInjector(new TestModule());
     WorkQueue testWorkQueue = baseInjector.getInstance(WorkQueue.class);
