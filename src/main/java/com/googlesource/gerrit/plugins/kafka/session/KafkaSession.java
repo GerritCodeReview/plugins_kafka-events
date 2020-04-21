@@ -18,6 +18,7 @@ import com.google.inject.Inject;
 import com.googlesource.gerrit.plugins.kafka.config.KafkaProperties;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
+import org.apache.kafka.clients.producer.Callback;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
@@ -73,7 +74,19 @@ public final class KafkaSession {
   }
 
   public void publish(String messageBody) {
-    publish(properties.getTopic(), messageBody);
+    producer.send(
+        new ProducerRecord<>(properties.getTopic(), "" + System.nanoTime(), messageBody),
+        new Callback() {
+
+          @Override
+          public void onCompletion(RecordMetadata metadata, Exception e) {
+            if (e == null) {
+              LOGGER.debug("The offset of the record we just sent is: {}", metadata.offset());
+            } else {
+              LOGGER.error("Cannot send the message", e);
+            }
+          }
+        });
   }
 
   public boolean publish(String topic, String messageBody) {
