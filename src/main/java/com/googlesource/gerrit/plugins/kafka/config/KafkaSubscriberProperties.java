@@ -44,6 +44,7 @@ public class KafkaSubscriberProperties extends KafkaProperties {
 
   @VisibleForTesting
   public KafkaSubscriberProperties(int pollingInterval, String groupId, int numberOfSubscribers) {
+    super(false);
     this.pollingInterval = pollingInterval;
     this.groupId = groupId;
     this.numberOfSubscribers = numberOfSubscribers;

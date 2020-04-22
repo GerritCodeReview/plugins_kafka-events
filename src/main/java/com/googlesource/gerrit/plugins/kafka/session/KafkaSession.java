@@ -77,6 +77,13 @@ public final class KafkaSession {
   }
 
   public boolean publish(String topic, String messageBody) {
+    if (properties.isSendAsync()) {
+      return publishAsync(topic, messageBody);
+    }
+    return publishSync(topic, messageBody);
+  }
+
+  private boolean publishSync(String topic, String messageBody) {
     Future<RecordMetadata> future =
         producer.send(new ProducerRecord<>(topic, "" + System.nanoTime(), messageBody));
     try {
@@ -87,5 +94,19 @@ public final class KafkaSession {
       LOGGER.error("Cannot send the message", e);
       return false;
     }
+  }
+
+  private boolean publishAsync(String topic, String messageBody) {
+    Future<RecordMetadata> future =
+        producer.send(
+            new ProducerRecord<>(topic, "" + System.nanoTime(), messageBody),
+            (metadata, e) -> {
+              if (metadata != null) {
+                LOGGER.debug("The offset of the record we just sent is: {}", metadata.offset());
+              } else {
+                LOGGER.error("Cannot send the message", e);
+              }
+            });
+    return future != null;
   }
 }
