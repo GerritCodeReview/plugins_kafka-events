@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6b44c7a8_3d1c93db",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/session/KafkaSession.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-04-22T10:17:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "699df50c_d73a0c08",
+      "range": {
+        "startLine": 102,
+        "startChar": 40,
+        "endLine": 102,
+        "endChar": 62
+      },
+      "revId": "28b7d2950d253efab92b667119ff7b333aacb447",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baba5d4b_48cb1bf1",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/session/KafkaSession.java",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "045a859a_fec73bfb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/session/KafkaSession.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-04-22T10:17:38Z",
+      "side": 1,
+      "message": "No extra check needed, because the logger is already null-safe on the exceptions.\nIf e is null, the LOGGER.error would still work and just not report any exception.",
+      "parentUuid": "baba5d4b_48cb1bf1",
+      "range": {
+        "startLine": 106,
+        "startChar": 16,
+        "endLine": 106,
+        "endChar": 22
+      },
+      "revId": "28b7d2950d253efab92b667119ff7b333aacb447",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e311221_ca3814de",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/session/KafkaSession.java",
         "patchSetId": 2
@@ -68,6 +116,30 @@
       "revId": "28b7d2950d253efab92b667119ff7b333aacb447",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f23bac7b_d9767572",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/session/KafkaSession.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-04-22T10:17:38Z",
+      "side": 1,
+      "message": "No idea :-) but it\u0027s the only \"reasonable\" condition we have at this point in time.",
+      "parentUuid": "6e311221_ca3814de",
+      "range": {
+        "startLine": 110,
+        "startChar": 21,
+        "endLine": 110,
+        "endChar": 25
+      },
+      "revId": "28b7d2950d253efab92b667119ff7b333aacb447",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
