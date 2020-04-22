@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "547a4478_ea811161",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/config/KafkaProperties.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-04-22T09:03:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6000f63f_cd040f47",
+      "range": {
+        "startLine": 45,
+        "startChar": 57,
+        "endLine": 45,
+        "endChar": 62
+      },
+      "revId": "734df70bf993afd9c958f4a53e5f6f1adb73811f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dbb99ae1_034227fb",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/config/KafkaSubscriberProperties.java",
         "patchSetId": 1
@@ -68,6 +92,30 @@
       "revId": "734df70bf993afd9c958f4a53e5f6f1adb73811f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5044af2d_37033efc",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/config/KafkaSubscriberProperties.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-04-22T09:03:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbb99ae1_034227fb",
+      "range": {
+        "startLine": 47,
+        "startChar": 10,
+        "endLine": 47,
+        "endChar": 15
+      },
+      "revId": "734df70bf993afd9c958f4a53e5f6f1adb73811f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -118,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "1529a77f_2de38b08",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/session/KafkaSession.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-04-22T09:03:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "286f82bd_21aee9af",
+      "range": {
+        "startLine": 104,
+        "startChar": 18,
+        "endLine": 104,
+        "endChar": 34
+      },
+      "revId": "734df70bf993afd9c958f4a53e5f6f1adb73811f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "33b63571_3a0636d4",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 1
@@ -138,6 +210,30 @@
       "revId": "734df70bf993afd9c958f4a53e5f6f1adb73811f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ebc5c43_37aa7697",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-04-22T09:03:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33b63571_3a0636d4",
+      "range": {
+        "startLine": 50,
+        "startChar": 10,
+        "endLine": 50,
+        "endChar": 15
+      },
+      "revId": "734df70bf993afd9c958f4a53e5f6f1adb73811f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
