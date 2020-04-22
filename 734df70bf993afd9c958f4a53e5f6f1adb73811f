@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "ad5998c7_3c551d12",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-04-22T08:26:46Z",
+      "side": 1,
+      "message": "control the synchronicity",
+      "range": {
+        "startLine": 10,
+        "startChar": 15,
+        "endLine": 10,
+        "endChar": 26
+      },
+      "revId": "734df70bf993afd9c958f4a53e5f6f1adb73811f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6000f63f_cd040f47",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/config/KafkaProperties.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-04-22T08:26:46Z",
+      "side": 1,
+      "message": "true",
+      "range": {
+        "startLine": 45,
+        "startChar": 57,
+        "endLine": 45,
+        "endChar": 62
+      },
+      "revId": "734df70bf993afd9c958f4a53e5f6f1adb73811f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbb99ae1_034227fb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/config/KafkaSubscriberProperties.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-04-22T08:26:46Z",
+      "side": 1,
+      "message": "Should be true by default, as it was in stable-2.16",
+      "range": {
+        "startLine": 47,
+        "startChar": 10,
+        "endLine": 47,
+        "endChar": 15
+      },
+      "revId": "734df70bf993afd9c958f4a53e5f6f1adb73811f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bf63b6fe_5e4d66c6",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/session/KafkaSession.java",
         "patchSetId": 1
@@ -18,6 +87,53 @@
         "startChar": 18,
         "endLine": 104,
         "endChar": 34
+      },
+      "revId": "734df70bf993afd9c958f4a53e5f6f1adb73811f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "286f82bd_21aee9af",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/session/KafkaSession.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-04-22T08:26:46Z",
+      "side": 1,
+      "message": "Good point, I\u0027ll swap with e\u003d\u003dnull test.",
+      "parentUuid": "bf63b6fe_5e4d66c6",
+      "range": {
+        "startLine": 104,
+        "startChar": 18,
+        "endLine": 104,
+        "endChar": 34
+      },
+      "revId": "734df70bf993afd9c958f4a53e5f6f1adb73811f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33b63571_3a0636d4",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-04-22T08:26:46Z",
+      "side": 1,
+      "message": "true",
+      "range": {
+        "startLine": 50,
+        "startChar": 10,
+        "endLine": 50,
+        "endChar": 15
       },
       "revId": "734df70bf993afd9c958f4a53e5f6f1adb73811f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
