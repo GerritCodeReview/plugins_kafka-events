@@ -41,6 +41,7 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.junit.Test;
 import org.testcontainers.containers.KafkaContainer;
+import org.testcontainers.containers.SocatContainer;
 
 @NoHttpd
 @TestPlugin(name = "kafka-events", sysModule = "com.googlesource.gerrit.plugins.kafka.Module")
@@ -52,10 +53,18 @@ public class EventConsumerIT extends LightweightPluginDaemonTest {
   @Override
   public void setUpTestPlugin() throws Exception {
     try {
-      kafka = new KafkaContainer();
-      kafka.start();
+      try (SocatContainer proxy = new SocatContainer()) {
+        proxy
+            .withTarget(KafkaContainer.KAFKA_PORT, "localhost")
+            .withTarget(KafkaContainer.ZOOKEEPER_PORT, "localhost")
+            .start();
 
-      System.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, kafka.getBootstrapServers());
+        kafka = new KafkaContainer();
+        kafka.start();
+
+        System.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, kafka.getBootstrapServers());
+      }
+
     } catch (IllegalStateException e) {
       fail("Cannot start container. Is docker daemon running?");
     }
