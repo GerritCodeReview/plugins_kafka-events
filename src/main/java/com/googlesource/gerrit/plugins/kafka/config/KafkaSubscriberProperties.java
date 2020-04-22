@@ -14,14 +14,17 @@
 
 package com.googlesource.gerrit.plugins.kafka.config;
 
+import com.google.common.annotations.VisibleForTesting;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 
+@Singleton
 public class KafkaSubscriberProperties extends KafkaProperties {
   private static final long serialVersionUID = 1L;
   private static final String DEFAULT_POLLING_INTERVAL_MS = "1000";
-  private static final String DEFAULT_NUMBER_OF_SUBSCRIBERS = "4";
+  private static final String DEFAULT_NUMBER_OF_SUBSCRIBERS = "6";
 
   private final Integer pollingInterval;
   private final String groupId;
@@ -37,6 +40,14 @@ public class KafkaSubscriberProperties extends KafkaProperties {
     this.groupId = getProperty("group.id");
     this.numberOfSubscribers =
         Integer.parseInt(getProperty("number.of.subscribers", DEFAULT_NUMBER_OF_SUBSCRIBERS));
+  }
+
+  @VisibleForTesting
+  public KafkaSubscriberProperties(int pollingInterval, String groupId, int numberOfSubscribers) {
+    super(true);
+    this.pollingInterval = pollingInterval;
+    this.groupId = groupId;
+    this.numberOfSubscribers = numberOfSubscribers;
   }
 
   public Integer getPollingInterval() {

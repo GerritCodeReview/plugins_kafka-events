@@ -24,6 +24,7 @@ import com.googlesource.gerrit.plugins.kafka.broker.ConsumerExecutor;
 import com.googlesource.gerrit.plugins.kafka.config.KafkaSubscriberProperties;
 import java.time.Duration;
 import java.util.Collections;
+import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.apache.kafka.clients.consumer.Consumer;
@@ -33,8 +34,8 @@ import org.apache.kafka.common.serialization.Deserializer;
 
 public class KafkaEventSubscriber {
   private static final FluentLogger logger = FluentLogger.forEnclosingClass();
+  private static final int DELAY_RECONNECT_AFTER_FAILURE_MSEC = 1000;
 
-  private final Consumer<byte[], byte[]> consumer;
   private final OneOffRequestContext oneOffCtx;
   private final AtomicBoolean closed = new AtomicBoolean(false);
 
@@ -42,11 +43,14 @@ public class KafkaEventSubscriber {
   private final KafkaSubscriberProperties configuration;
   private final ExecutorService executor;
   private final KafkaEventSubscriberMetrics subscriberMetrics;
+  private final KafkaConsumerFactory consumerFactory;
+  private final Deserializer<byte[]> keyDeserializer;
 
   private java.util.function.Consumer<EventMessage> messageProcessor;
-
   private String topic;
   private AtomicBoolean resetOffset = new AtomicBoolean(false);
+
+  private volatile ReceiverJob receiver;
 
   @Inject
   public KafkaEventSubscriber(
@@ -62,14 +66,8 @@ public class KafkaEventSubscriber {
     this.oneOffCtx = oneOffCtx;
     this.executor = executor;
     this.subscriberMetrics = subscriberMetrics;
-
-    final ClassLoader previousClassLoader = Thread.currentThread().getContextClassLoader();
-    try {
-      Thread.currentThread().setContextClassLoader(KafkaEventSubscriber.class.getClassLoader());
-      this.consumer = consumerFactory.create(keyDeserializer);
-    } finally {
-      Thread.currentThread().setContextClassLoader(previousClassLoader);
-    }
+    this.consumerFactory = consumerFactory;
+    this.keyDeserializer = keyDeserializer;
     this.valueDeserializer = valueDeserializer;
   }
 
@@ -78,13 +76,25 @@ public class KafkaEventSubscriber {
     this.messageProcessor = messageProcessor;
     logger.atInfo().log(
         "Kafka consumer subscribing to topic alias [%s] for event topic [%s]", topic, topic);
-    consumer.subscribe(Collections.singleton(topic));
-    executor.execute(new ReceiverJob());
+    runReceiver();
+  }
+
+  private void runReceiver() {
+    final ClassLoader previousClassLoader = Thread.currentThread().getContextClassLoader();
+    try {
+      Thread.currentThread().setContextClassLoader(KafkaEventSubscriber.class.getClassLoader());
+      Consumer<byte[], byte[]> consumer = consumerFactory.create(keyDeserializer);
+      consumer.subscribe(Collections.singleton(topic));
+      receiver = new ReceiverJob(consumer);
+      executor.execute(receiver);
+    } finally {
+      Thread.currentThread().setContextClassLoader(previousClassLoader);
+    }
   }
 
   public void shutdown() {
     closed.set(true);
-    consumer.wakeup();
+    receiver.wakeup();
   }
 
   public java.util.function.Consumer<EventMessage> getMessageProcessor() {
@@ -100,13 +110,26 @@ public class KafkaEventSubscriber {
   }
 
   private class ReceiverJob implements Runnable {
+    private final Consumer<byte[], byte[]> consumer;
+
+    public ReceiverJob(Consumer<byte[], byte[]> consumer) {
+      this.consumer = consumer;
+    }
+
+    public void wakeup() {
+      consumer.wakeup();
+    }
 
     @Override
     public void run() {
-      consume();
+      try {
+        consume();
+      } catch (Exception e) {
+        logger.atSevere().withCause(e).log("Consumer loop of topic %s ended", topic);
+      }
     }
 
-    private void consume() {
+    private void consume() throws InterruptedException {
       try {
         while (!closed.get()) {
           if (resetOffset.getAndSet(false)) {
@@ -130,13 +153,28 @@ public class KafkaEventSubscriber {
         }
       } catch (WakeupException e) {
         // Ignore exception if closing
-        if (!closed.get()) throw e;
+        if (!closed.get()) {
+          logger.atSevere().withCause(e).log("Consumer loop of topic %s interrupted", topic);
+          reconnectAfterFailure();
+        }
       } catch (Exception e) {
         subscriberMetrics.incrementSubscriberFailedToPollMessages();
-        throw e;
+        logger.atSevere().withCause(e).log(
+            "Existing consumer loop of topic %s because of a non-recoverable exception", topic);
+        reconnectAfterFailure();
       } finally {
         consumer.close();
       }
+    }
+
+    private void reconnectAfterFailure() throws InterruptedException {
+      // Random delay with average of DELAY_RECONNECT_AFTER_FAILURE_MSEC
+      // for avoiding hammering exactly at the same interval in case of failure
+      long reconnectDelay =
+          DELAY_RECONNECT_AFTER_FAILURE_MSEC / 2
+              + new Random().nextInt(DELAY_RECONNECT_AFTER_FAILURE_MSEC);
+      Thread.sleep(reconnectDelay);
+      runReceiver();
     }
   }
 }
