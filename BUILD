@@ -29,6 +29,7 @@ junit_tests(
     deps = [
         ":kafka-events__plugin_test_deps",
         "//lib/testcontainers",
+        "@duct-tape//jar",
         "@kafka-client//jar",
         "@events-broker//jar",
         "@testcontainers-kafka//jar",

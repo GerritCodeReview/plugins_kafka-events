@@ -9,8 +9,8 @@ def external_plugin_deps():
 
     maven_jar(
         name = "testcontainers-kafka",
-        artifact = "org.testcontainers:kafka:1.10.6",
-        sha1 = "5984e31306bd6c84a36092cdd19e0ef7e2268d98",
+        artifact = "org.testcontainers:kafka:1.13.0",
+        sha1 = "ab6b31212f6a0ce341aa907fceffb722d9b9f3f7",
     )
 
     maven_jar(
@@ -18,3 +18,4 @@ def external_plugin_deps():
         artifact = "com.gerritforge:events-broker:3.1.3",
         sha1 = "a12ef44f9b75a5dbecac9f1f0acf0f236b220252",
     )
+
