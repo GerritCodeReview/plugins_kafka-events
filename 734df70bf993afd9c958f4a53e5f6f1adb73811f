@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "287dc801_44f7caa8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-04-22T10:18:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad5998c7_3c551d12",
+      "range": {
+        "startLine": 10,
+        "startChar": 15,
+        "endLine": 10,
+        "endChar": 26
+      },
+      "revId": "734df70bf993afd9c958f4a53e5f6f1adb73811f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6000f63f_cd040f47",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/config/KafkaProperties.java",
         "patchSetId": 1
