@@ -19,6 +19,7 @@ import static org.junit.Assert.fail;
 
 import com.gerritforge.gerrit.eventbroker.EventGsonProvider;
 import com.google.common.collect.Iterables;
+import com.google.common.flogger.FluentLogger;
 import com.google.gerrit.acceptance.GerritConfig;
 import com.google.gerrit.acceptance.LightweightPluginDaemonTest;
 import com.google.gerrit.acceptance.NoHttpd;
@@ -34,28 +35,102 @@ import com.googlesource.gerrit.plugins.kafka.config.KafkaProperties;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
+import java.util.concurrent.Callable;
+import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.junit.Test;
+import org.rnorth.ducttape.TimeoutException;
+import org.rnorth.ducttape.unreliables.Unreliables;
+import org.testcontainers.containers.ContainerLaunchException;
 import org.testcontainers.containers.KafkaContainer;
+import org.testcontainers.containers.SocatContainer;
+import org.testcontainers.containers.wait.internal.ExternalPortListeningCheck;
+import org.testcontainers.containers.wait.internal.InternalCommandPortListeningCheck;
+import org.testcontainers.containers.wait.strategy.AbstractWaitStrategy;
 
 @NoHttpd
 @TestPlugin(name = "kafka-events", sysModule = "com.googlesource.gerrit.plugins.kafka.Module")
 public class EventConsumerIT extends LightweightPluginDaemonTest {
   static final long KAFKA_POLL_TIMEOUT = 10000L;
+  private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
   private KafkaContainer kafka;
+
+  public static class MyHostPortWaitStrategy extends AbstractWaitStrategy {
+    public static MyHostPortWaitStrategy INSTANCE = new MyHostPortWaitStrategy();
+
+    @Override
+    protected void waitUntilReady() {
+      final Set<Integer> externalLivenessCheckPorts = getLivenessCheckPorts();
+      if (externalLivenessCheckPorts.isEmpty()) {
+        logger.atInfo().log(
+            "Liveness check ports of {} is empty. Not waiting.",
+            waitStrategyTarget.getContainerInfo().getName());
+        return;
+      }
+
+      @SuppressWarnings("unchecked")
+      List<Integer> exposedPorts = waitStrategyTarget.getExposedPorts();
+
+      final Set<Integer> internalPorts = getInternalPorts(externalLivenessCheckPorts, exposedPorts);
+
+      Callable<Boolean> internalCheck =
+          new InternalCommandPortListeningCheck(waitStrategyTarget, internalPorts);
+
+      Callable<Boolean> externalCheck =
+          new ExternalPortListeningCheck(waitStrategyTarget, externalLivenessCheckPorts);
+
+      try {
+        Unreliables.retryUntilTrue(
+            (int) startupTimeout.getSeconds(),
+            TimeUnit.SECONDS,
+            () ->
+                getRateLimiter().getWhenReady(() -> internalCheck.call() && externalCheck.call()));
+
+      } catch (TimeoutException e) {
+        throw new ContainerLaunchException(
+            "Timed out waiting for container port to open ("
+                + waitStrategyTarget.getContainerIpAddress()
+                + " ports: "
+                + externalLivenessCheckPorts
+                + " should be listening)");
+      }
+    }
+
+    private Set<Integer> getInternalPorts(
+        Set<Integer> externalLivenessCheckPorts, List<Integer> exposedPorts) {
+      return exposedPorts.stream()
+          .filter(it -> externalLivenessCheckPorts.contains(waitStrategyTarget.getMappedPort(it)))
+          .collect(Collectors.toSet());
+    }
+  }
 
   @Override
   public void setUpTestPlugin() throws Exception {
     try {
-      kafka = new KafkaContainer();
-      kafka.start();
+      try (SocatContainer proxy =
+          new SocatContainer() {
+            protected org.testcontainers.containers.wait.strategy.WaitStrategy getWaitStrategy() {
+              return MyHostPortWaitStrategy.INSTANCE;
+            }
+          }) {
+        proxy
+            .withTarget(KafkaContainer.KAFKA_PORT, "localhost")
+            .withTarget(KafkaContainer.ZOOKEEPER_PORT, "localhost")
+            .start();
 
-      System.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, kafka.getBootstrapServers());
+        kafka = new KafkaContainer();
+        kafka.start();
+
+        System.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, kafka.getBootstrapServers());
+      }
+
     } catch (IllegalStateException e) {
       fail("Cannot start container. Is docker daemon running?");
     }
