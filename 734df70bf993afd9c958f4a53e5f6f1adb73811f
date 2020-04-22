@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf63b6fe_5e4d66c6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/session/KafkaSession.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1083454
+      },
+      "writtenOn": "2020-04-22T06:59:01Z",
+      "side": 1,
+      "message": "should be e\u003d\u003dnull. I\u0027ve checked and we have metadata event if we have TimeoutException",
+      "range": {
+        "startLine": 104,
+        "startChar": 18,
+        "endLine": 104,
+        "endChar": 34
+      },
+      "revId": "734df70bf993afd9c958f4a53e5f6f1adb73811f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
