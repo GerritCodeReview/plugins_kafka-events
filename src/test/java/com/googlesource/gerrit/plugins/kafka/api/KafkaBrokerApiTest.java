@@ -44,7 +44,6 @@ import java.util.function.Consumer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -55,9 +54,6 @@ import org.testcontainers.containers.KafkaContainer;
 @RunWith(MockitoJUnitRunner.class)
 public class KafkaBrokerApiTest {
   private static KafkaContainer kafka;
-  private static Injector injector;
-  private static KafkaSession session;
-  private static Gson gson;
 
   private static final int TEST_NUM_SUBSCRIBERS = 1;
   private static final String TEST_GROUP_ID = KafkaBrokerApiTest.class.getName();
@@ -66,6 +62,10 @@ public class KafkaBrokerApiTest {
   private static final UUID TEST_INSTANCE_ID = UUID.randomUUID();
   private static final TimeUnit TEST_TIMOUT_UNIT = TimeUnit.SECONDS;
   private static final int TEST_TIMEOUT = 30;
+
+  private Injector injector;
+  private KafkaSession session;
+  private Gson gson;
 
   public static class TestKafkaContainer extends KafkaContainer {
     public TestKafkaContainer() {
@@ -88,6 +88,11 @@ public class KafkaBrokerApiTest {
   }
 
   public static class TestModule extends AbstractModule {
+    private KafkaProperties kafkaProperties;
+
+    public TestModule(KafkaProperties kafkaProperties) {
+      this.kafkaProperties = kafkaProperties;
+    }
 
     @Override
     protected void configure() {
@@ -96,7 +101,6 @@ public class KafkaBrokerApiTest {
       bind(OneOffRequestContext.class)
           .toInstance(mock(OneOffRequestContext.class, Answers.RETURNS_DEEP_STUBS));
 
-      KafkaProperties kafkaProperties = new KafkaProperties();
       bind(KafkaProperties.class).toInstance(kafkaProperties);
       bind(KafkaSession.class).in(Scopes.SINGLETON);
       KafkaSubscriberProperties kafkaSubscriberProperties =
@@ -142,16 +146,6 @@ public class KafkaBrokerApiTest {
     kafka = new TestKafkaContainer();
     kafka.start();
     System.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, kafka.getBootstrapServers());
-
-    Injector baseInjector = Guice.createInjector(new TestModule());
-    WorkQueue testWorkQueue = baseInjector.getInstance(WorkQueue.class);
-    KafkaSubscriberProperties kafkaSubscriberProperties =
-        baseInjector.getInstance(KafkaSubscriberProperties.class);
-    injector =
-        baseInjector.createChildInjector(
-            new KafkaApiModule(testWorkQueue, kafkaSubscriberProperties));
-    session = injector.getInstance(KafkaSession.class);
-    gson = injector.getInstance(Gson.class);
   }
 
   @AfterClass
@@ -161,25 +155,53 @@ public class KafkaBrokerApiTest {
     }
   }
 
-  @Before
-  public void setup() {
+  public void connectToKafka(KafkaProperties kafkaProperties) {
+    Injector baseInjector = Guice.createInjector(new TestModule(kafkaProperties));
+    WorkQueue testWorkQueue = baseInjector.getInstance(WorkQueue.class);
+    KafkaSubscriberProperties kafkaSubscriberProperties =
+        baseInjector.getInstance(KafkaSubscriberProperties.class);
+    injector =
+        baseInjector.createChildInjector(
+            new KafkaApiModule(testWorkQueue, kafkaSubscriberProperties));
+    session = injector.getInstance(KafkaSession.class);
+    gson = injector.getInstance(Gson.class);
+
     session.connect();
   }
 
   @After
   public void teardown() {
-    session.disconnect();
+    if (session != null) {
+      session.disconnect();
+    }
   }
 
   @Test
-  public void shouldSendAndReceiveToTopic() {
+  public void shouldSendSyncAndReceiveToTopic() {
+    connectToKafka(new KafkaProperties(false));
     KafkaBrokerApi kafkaBrokerApi = injector.getInstance(KafkaBrokerApi.class);
-    String testTopic = "test_topic";
+    String testTopic = "test_topic_sync";
     TestConsumer testConsumer = new TestConsumer(1);
     EventMessage testEventMessage = new EventMessage(new TestHeader(), new ProjectCreatedEvent());
 
     kafkaBrokerApi.receiveAsync(testTopic, testConsumer);
     kafkaBrokerApi.send(testTopic, testEventMessage);
+
+    assertThat(testConsumer.await()).isTrue();
+    assertThat(testConsumer.messages).hasSize(1);
+    assertThat(gson.toJson(testConsumer.messages.get(0))).isEqualTo(gson.toJson(testEventMessage));
+  }
+
+  @Test
+  public void shouldSendAsyncAndReceiveToTopic() {
+    connectToKafka(new KafkaProperties(true));
+    KafkaBrokerApi kafkaBrokerApi = injector.getInstance(KafkaBrokerApi.class);
+    String testTopic = "test_topic_async";
+    TestConsumer testConsumer = new TestConsumer(1);
+    EventMessage testEventMessage = new EventMessage(new TestHeader(), new ProjectCreatedEvent());
+
+    kafkaBrokerApi.send(testTopic, testEventMessage);
+    kafkaBrokerApi.receiveAsync(testTopic, testConsumer);
 
     assertThat(testConsumer.await()).isTrue();
     assertThat(testConsumer.messages).hasSize(1);
