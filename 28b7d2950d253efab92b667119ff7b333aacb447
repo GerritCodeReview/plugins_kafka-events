@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "699df50c_d73a0c08",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/session/KafkaSession.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1054778
+      },
+      "writtenOn": "2020-04-22T09:13:02Z",
+      "side": 1,
+      "message": "nit: Maybe use Long.toString()?",
+      "range": {
+        "startLine": 102,
+        "startChar": 40,
+        "endLine": 102,
+        "endChar": 62
+      },
+      "revId": "28b7d2950d253efab92b667119ff7b333aacb447",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "baba5d4b_48cb1bf1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/session/KafkaSession.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1054778
+      },
+      "writtenOn": "2020-04-22T09:13:02Z",
+      "side": 1,
+      "message": "if \"metadata\" \u003d\u003d null, will \"e\" be populated for sure? or we need an extra check here?",
+      "range": {
+        "startLine": 106,
+        "startChar": 16,
+        "endLine": 106,
+        "endChar": 22
+      },
+      "revId": "28b7d2950d253efab92b667119ff7b333aacb447",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e311221_ca3814de",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/session/KafkaSession.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1054778
+      },
+      "writtenOn": "2020-04-22T09:13:02Z",
+      "side": 1,
+      "message": "In which case will the future be null ?",
+      "range": {
+        "startLine": 110,
+        "startChar": 21,
+        "endLine": 110,
+        "endChar": 25
+      },
+      "revId": "28b7d2950d253efab92b667119ff7b333aacb447",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
