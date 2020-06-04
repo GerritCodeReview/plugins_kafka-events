@@ -22,8 +22,11 @@ import com.google.gson.Gson;
 import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import com.google.inject.TypeLiteral;
 import com.googlesource.gerrit.plugins.kafka.api.KafkaApiModule;
 import com.googlesource.gerrit.plugins.kafka.publish.KafkaPublisher;
+import com.googlesource.gerrit.plugins.kafka.session.KafkaProducerProvider;
+import org.apache.kafka.clients.producer.KafkaProducer;
 
 class Module extends AbstractModule {
 
@@ -39,6 +42,9 @@ class Module extends AbstractModule {
     bind(Gson.class).toProvider(EventGsonProvider.class).in(Singleton.class);
     DynamicSet.bind(binder(), LifecycleListener.class).to(Manager.class);
     DynamicSet.bind(binder(), EventListener.class).to(KafkaPublisher.class);
+
+    bind(new TypeLiteral<KafkaProducer<String, String>>() {})
+        .toProvider(KafkaProducerProvider.class);
 
     install(kafkaBrokerModule);
   }
