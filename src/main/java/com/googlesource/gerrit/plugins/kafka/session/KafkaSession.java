@@ -15,8 +15,9 @@
 package com.googlesource.gerrit.plugins.kafka.session;
 
 import com.google.inject.Inject;
+import com.google.inject.Provider;
 import com.googlesource.gerrit.plugins.kafka.config.KafkaProperties;
-import java.util.concurrent.ExecutionException;
+import com.googlesource.gerrit.plugins.kafka.publish.KafkaEventsPublisherMetrics;
 import java.util.concurrent.Future;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
@@ -29,11 +30,18 @@ public final class KafkaSession {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(KafkaSession.class);
   private final KafkaProperties properties;
+  private final Provider<KafkaProducer<String, String>> producerProvider;
+  private final KafkaEventsPublisherMetrics publisherMetrics;
   private volatile Producer<String, String> producer;
 
   @Inject
-  public KafkaSession(KafkaProperties properties) {
+  public KafkaSession(
+      Provider<KafkaProducer<String, String>> producerProvider,
+      KafkaProperties properties,
+      KafkaEventsPublisherMetrics publisherMetrics) {
+    this.producerProvider = producerProvider;
     this.properties = properties;
+    this.publisherMetrics = publisherMetrics;
   }
 
   public boolean isOpen() {
@@ -55,7 +63,7 @@ public final class KafkaSession {
      * ClassNotFoundExceptions
      */
     setConnectionClassLoader();
-    producer = new KafkaProducer<>(properties);
+    producer = producerProvider.get();
     LOGGER.info("Connection established.");
   }
 
@@ -84,29 +92,40 @@ public final class KafkaSession {
   }
 
   private boolean publishSync(String topic, String messageBody) {
-    Future<RecordMetadata> future =
-        producer.send(new ProducerRecord<>(topic, "" + System.nanoTime(), messageBody));
+
     try {
+      Future<RecordMetadata> future =
+          producer.send(new ProducerRecord<>(topic, "" + System.nanoTime(), messageBody));
       RecordMetadata metadata = future.get();
       LOGGER.debug("The offset of the record we just sent is: {}", metadata.offset());
+      publisherMetrics.incrementBrokerPublishedMessage();
       return true;
-    } catch (InterruptedException | ExecutionException e) {
+    } catch (Throwable e) {
       LOGGER.error("Cannot send the message", e);
+      publisherMetrics.incrementBrokerFailedToPublishMessage();
       return false;
     }
   }
 
   private boolean publishAsync(String topic, String messageBody) {
-    Future<RecordMetadata> future =
-        producer.send(
-            new ProducerRecord<>(topic, Long.toString(System.nanoTime()), messageBody),
-            (metadata, e) -> {
-              if (metadata != null && e == null) {
-                LOGGER.debug("The offset of the record we just sent is: {}", metadata.offset());
-              } else {
-                LOGGER.error("Cannot send the message", e);
-              }
-            });
-    return future != null;
+    try {
+      Future<RecordMetadata> future =
+          producer.send(
+              new ProducerRecord<>(topic, Long.toString(System.nanoTime()), messageBody),
+              (metadata, e) -> {
+                if (metadata != null && e == null) {
+                  LOGGER.debug("The offset of the record we just sent is: {}", metadata.offset());
+                  publisherMetrics.incrementBrokerPublishedMessage();
+                } else {
+                  LOGGER.error("Cannot send the message", e);
+                  publisherMetrics.incrementBrokerFailedToPublishMessage();
+                }
+              });
+      return future != null;
+    } catch (Throwable e) {
+      LOGGER.error("Cannot send the message", e);
+      publisherMetrics.incrementBrokerFailedToPublishMessage();
+      return false;
+    }
   }
 }
