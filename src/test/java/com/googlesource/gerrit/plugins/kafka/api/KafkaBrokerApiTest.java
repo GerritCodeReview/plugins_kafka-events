@@ -32,8 +32,10 @@ import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.Scopes;
 import com.google.inject.Singleton;
+import com.google.inject.TypeLiteral;
 import com.googlesource.gerrit.plugins.kafka.config.KafkaProperties;
 import com.googlesource.gerrit.plugins.kafka.config.KafkaSubscriberProperties;
+import com.googlesource.gerrit.plugins.kafka.session.KafkaProducerProvider;
 import com.googlesource.gerrit.plugins.kafka.session.KafkaSession;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +43,7 @@ import java.util.UUID;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
+import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -95,6 +98,9 @@ public class KafkaBrokerApiTest {
           new KafkaSubscriberProperties(
               TEST_POLLING_INTERVAL_MSEC, TEST_GROUP_ID, TEST_NUM_SUBSCRIBERS);
       bind(KafkaSubscriberProperties.class).toInstance(kafkaSubscriberProperties);
+      bind(new TypeLiteral<KafkaProducer<String, String>>() {})
+          .toProvider(KafkaProducerProvider.class);
+
       bind(WorkQueue.class).to(TestWorkQueue.class);
     }
   }
