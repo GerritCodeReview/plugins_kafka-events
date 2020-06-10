@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "56f39418_252d3a64",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/publish/KafkaEventsPublisherMetrics.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1083454
+      },
+      "writtenOn": "2020-06-10T12:54:59Z",
+      "side": 1,
+      "message": "I just copied code from multi-site but you are right I\u0027m changing name anyway so I can make it more consistent",
+      "parentUuid": "cfe488d7_8155ddde",
+      "range": {
+        "startLine": 26,
+        "startChar": 59,
+        "endLine": 26,
+        "endChar": 87
+      },
+      "revId": "ad9148c86297f1e86dbf57dc603b7416827208f4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b53b658b_ae068665",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/publish/KafkaEventsPublisherMetrics.java",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "8fb6311d_ff6a68e0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/publish/KafkaEventsPublisherMetrics.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1083454
+      },
+      "writtenOn": "2020-06-10T12:54:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b53b658b_ae068665",
+      "range": {
+        "startLine": 38,
+        "startChar": 39,
+        "endLine": 38,
+        "endChar": 47
+      },
+      "revId": "ad9148c86297f1e86dbf57dc603b7416827208f4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd7652df_df476bb9",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/session/KafkaSession.java",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2020-06-10T10:36:52Z",
       "side": 1,
       "message": "Why do we need o move this \"try\" ?",
+      "range": {
+        "startLine": 96,
+        "startChar": 4,
+        "endLine": 96,
+        "endChar": 7
+      },
+      "revId": "ad9148c86297f1e86dbf57dc603b7416827208f4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75d8d998_1580efc4",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/session/KafkaSession.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1083454
+      },
+      "writtenOn": "2020-06-10T12:54:59Z",
+      "side": 1,
+      "message": "Actually it was an issue in current code. producer.send can throw an exception, currently we are not catching it so we are not bumping metrics and we are not handling it correctly",
+      "parentUuid": "cd7652df_df476bb9",
       "range": {
         "startLine": 96,
         "startChar": 4,
