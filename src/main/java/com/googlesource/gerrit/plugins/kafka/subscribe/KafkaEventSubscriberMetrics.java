@@ -2,14 +2,13 @@ package com.googlesource.gerrit.plugins.kafka.subscribe;
 
 import com.google.gerrit.metrics.Counter1;
 import com.google.gerrit.metrics.Description;
-import com.google.gerrit.metrics.Field;
 import com.google.gerrit.metrics.MetricMaker;
-import com.google.gerrit.server.logging.PluginMetadata;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import com.googlesource.gerrit.plugins.kafka.KafkaEventsMetrics;
 
 @Singleton
-class KafkaEventSubscriberMetrics {
+class KafkaEventSubscriberMetrics extends KafkaEventsMetrics {
 
   private static final String SUBSCRIBER_POLL_FAILURE_COUNTER =
       "subscriber_msg_consumer_poll_failure_counter";
@@ -44,18 +43,5 @@ class KafkaEventSubscriberMetrics {
 
   public void incrementSubscriberFailedToConsumeMessage() {
     subscriberFailureCounter.increment(SUBSCRIBER_FAILURE_COUNTER);
-  }
-
-  public Field<String> stringField(String metadataKey, String description) {
-    return Field.ofString(
-            metadataKey,
-            (metadataBuilder, fieldValue) ->
-                metadataBuilder.addPluginMetadata(PluginMetadata.create(metadataKey, fieldValue)))
-        .description(description)
-        .build();
-  }
-
-  public Description rateDescription(String unit, String description) {
-    return new Description(description).setRate().setUnit(unit);
   }
 }
