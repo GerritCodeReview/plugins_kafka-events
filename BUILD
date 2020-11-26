@@ -43,5 +43,7 @@ java_library(
         ":kafka-events__plugin",
         "@testcontainers-kafka//jar",
         "//lib/testcontainers",
+        "//lib/testcontainers:docker-java-api",
+        "//lib/testcontainers:docker-java-transport",
     ],
 )
