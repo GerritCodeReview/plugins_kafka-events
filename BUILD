@@ -42,6 +42,7 @@ java_library(
     exports = PLUGIN_DEPS + PLUGIN_TEST_DEPS + [
         ":kafka-events__plugin",
         "@testcontainers-kafka//jar",
+	"//lib/jackson:jackson-annotations",
         "//lib/testcontainers",
         "//lib/testcontainers:docker-java-api",
         "//lib/testcontainers:docker-java-transport",
