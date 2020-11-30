@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2c89fdc_c8720a67",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2020-11-30T14:27:40Z",
+      "side": 1,
+      "message": "This broke testcontainers test while one transitive dependency was missed to be added:\n\n  \"//lib/jackson:jackson-annotations\",\n\nWhy don\u0027t we have CI-verification for this plugin? docker based integration tests should just work, right (in fact, they work for ElasticSearch tests in Gerrit core).",
+      "range": {
+        "startLine": 46,
+        "startChar": 8,
+        "endLine": 47,
+        "endChar": 53
+      },
+      "revId": "5be4957c4309132f326acab96af44baf41ce8644",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
