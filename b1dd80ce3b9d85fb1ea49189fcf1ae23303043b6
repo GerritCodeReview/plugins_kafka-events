@@ -16,6 +16,23 @@
       "message": "Should I move this change rather to stable-3.1 and merge up to master?",
       "revId": "b1dd80ce3b9d85fb1ea49189fcf1ae23303043b6",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35d24771_60dcb75b",
+        "filename": "Jenkinsfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-12-02T23:48:02Z",
+      "side": 1,
+      "message": "Why not simply:\n\n  pluginPipeline(formatCheckId: \u0027gerritforge:plugins-kafka-events-code-style\u0027,\n                 buildCheckId: \u0027gerritforge:plugins-kafka-events-build-test\u0027)",
+      "revId": "b1dd80ce3b9d85fb1ea49189fcf1ae23303043b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
