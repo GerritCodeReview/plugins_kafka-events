@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35746f7c_adf4c622",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2020-12-02T19:22:17Z",
+      "side": 1,
+      "message": "Should I move this change rather to stable-3.1 and merge up to master?",
+      "revId": "b1dd80ce3b9d85fb1ea49189fcf1ae23303043b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
