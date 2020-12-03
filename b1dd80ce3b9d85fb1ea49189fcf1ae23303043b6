@@ -33,6 +33,24 @@
       "message": "Why not simply:\n\n  pluginPipeline(formatCheckId: \u0027gerritforge:plugins-kafka-events-code-style\u0027,\n                 buildCheckId: \u0027gerritforge:plugins-kafka-events-build-test\u0027)",
       "revId": "b1dd80ce3b9d85fb1ea49189fcf1ae23303043b6",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04f36c1c_17824101",
+        "filename": "Jenkinsfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2020-12-03T06:56:04Z",
+      "side": 1,
+      "message": "Interesting, didn\u0027t know, this is possible and was just adapting Jenkinsfile from plugins/zookeeper-refdb plugin.",
+      "parentUuid": "35d24771_60dcb75b",
+      "revId": "b1dd80ce3b9d85fb1ea49189fcf1ae23303043b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
