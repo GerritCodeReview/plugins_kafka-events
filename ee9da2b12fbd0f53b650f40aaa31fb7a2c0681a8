@@ -1,6 +1,24 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ef5233c_8aecdc5e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2021-01-28T10:59:53Z",
+      "side": 1,
+      "message": "ping.",
+      "revId": "ee9da2b12fbd0f53b650f40aaa31fb7a2c0681a8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "36086055_a3536e0c",
         "filename": "src/main/resources/Documentation/config.md",
@@ -14,8 +32,7 @@
       "side": 1,
       "message": "Should this be replaced by the same style of headers as used in the rest of the documentation?  I.e. remove this line and add a `# ` prefix on the previous line.",
       "revId": "ee9da2b12fbd0f53b650f40aaa31fb7a2c0681a8",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": true
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
