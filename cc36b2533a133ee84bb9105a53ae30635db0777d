@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2aaae597_93f3d262",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2021-01-28T12:49:08Z",
+      "side": 1,
+      "message": "Actually, the original change was done in gerrit on stable-2.16 branch: change 287983. So that we should cherry-pick the updates to stable-3.16 branch and merge it up to master.",
+      "revId": "cc36b2533a133ee84bb9105a53ae30635db0777d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
