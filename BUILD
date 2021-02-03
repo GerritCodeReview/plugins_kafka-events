@@ -17,8 +17,8 @@ gerrit_plugin(
     ],
     resources = glob(["src/main/resources/**/*"]),
     deps = [
+        "@events-broker//jar:neverlink",
         "@kafka-client//jar",
-        "@events-broker//jar",
     ],
 )
 
