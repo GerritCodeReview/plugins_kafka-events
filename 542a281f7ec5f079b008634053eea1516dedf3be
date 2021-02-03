@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4498be14_97ac6590",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2021-02-03T17:46:51Z",
+      "side": 1,
+      "message": "SGTM, have you checked that the JSON produced is compatible?",
+      "revId": "542a281f7ec5f079b008634053eea1516dedf3be",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
