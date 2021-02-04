@@ -16,6 +16,23 @@
       "message": "Should this be squashed with its predecessor? Otherwise the build would fail, isn\u0027t it?",
       "revId": "88bc166cf00db3e598ce5fe606c862580859a976",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3b48502_62b61fd0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2021-02-04T17:08:44Z",
+      "side": 1,
+      "message": "I cherry-picked the original change from another branch. Currently the build broken as well.",
+      "revId": "88bc166cf00db3e598ce5fe606c862580859a976",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
