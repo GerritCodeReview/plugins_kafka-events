@@ -16,6 +16,24 @@
       "message": "Tests are failing because events-broker is broken on master. That should be fixed in this change: [1], when it merged up to master and new version of events-broker is used in kafka-events plugin.\n\n",
       "revId": "8e5126b8e316fbe79ce7ab6b70a2e94b26da8f36",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e79cf00b_1e033552",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2021-02-04T16:44:01Z",
+      "side": 1,
+      "message": "Yeah, this is an expected failure until events-broker is fixed on master.",
+      "parentUuid": "581494fe_a49450d0",
+      "revId": "8e5126b8e316fbe79ce7ab6b70a2e94b26da8f36",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
