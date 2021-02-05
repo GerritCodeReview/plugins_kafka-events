@@ -16,6 +16,24 @@
       "message": "Do not merge yet: we do need first to approve the 3.4-alpha-20210205083200 change on events-broker",
       "revId": "0c90aab48b02510d68286f4b13b443b5b7214efb",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9a6bd52_bc51c8bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2021-02-05T09:35:13Z",
+      "side": 1,
+      "message": "It was approved already.",
+      "parentUuid": "505613a3_52074a45",
+      "revId": "0c90aab48b02510d68286f4b13b443b5b7214efb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
