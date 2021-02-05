@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb8e53eb_6f4cb570",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2021-02-05T09:45:46Z",
+      "side": 1,
+      "message": "It should be verified as soon as the Maven artifact is published.",
+      "revId": "9dfbdec1d9a04b37297bcc8f8d83c69657bcdfbc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
