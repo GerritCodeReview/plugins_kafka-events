@@ -34,6 +34,23 @@
       "parentUuid": "581494fe_a49450d0",
       "revId": "8e5126b8e316fbe79ce7ab6b70a2e94b26da8f36",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c38d37bb_261eba59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2021-02-05T08:50:46Z",
+      "side": 1,
+      "message": "The build is broker, but for another reason: the events-broker version.\nLet\u0027s merge this and fix the master build as a follow-up.",
+      "revId": "8e5126b8e316fbe79ce7ab6b70a2e94b26da8f36",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
