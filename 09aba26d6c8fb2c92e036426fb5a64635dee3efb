@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f83b003_66acccf8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2021-03-02T21:18:31Z",
+      "side": 1,
+      "message": "consume",
+      "range": {
+        "startLine": 13,
+        "startChar": 46,
+        "endLine": 13,
+        "endChar": 54
+      },
+      "revId": "09aba26d6c8fb2c92e036426fb5a64635dee3efb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdb0436c_edff0be1",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/kafka/EventConsumerIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2021-03-02T21:18:31Z",
+      "side": 1,
+      "message": "Since stable-3.3 branch waitUntil is also available in Gerrit core. Add a comment to remove that method, when merge up to stable-3.3?",
+      "range": {
+        "startLine": 178,
+        "startChar": 2,
+        "endLine": 187,
+        "endChar": 3
+      },
+      "revId": "09aba26d6c8fb2c92e036426fb5a64635dee3efb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
