@@ -26,6 +26,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d41fe902_929cf79d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2021-03-02T22:33:11Z",
+      "side": 1,
+      "message": "Make an",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 2
+      },
+      "revId": "09aba26d6c8fb2c92e036426fb5a64635dee3efb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50b1740d_c83f28ba",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2021-03-02T22:33:11Z",
+      "side": 1,
+      "message": "to ensure",
+      "range": {
+        "startLine": 16,
+        "startChar": 53,
+        "endLine": 16,
+        "endChar": 60
+      },
+      "revId": "09aba26d6c8fb2c92e036426fb5a64635dee3efb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6eeec699_5d07a3f7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2021-03-02T22:33:11Z",
+      "side": 1,
+      "message": "a partition is",
+      "range": {
+        "startLine": 17,
+        "startChar": 45,
+        "endLine": 17,
+        "endChar": 55
+      },
+      "revId": "09aba26d6c8fb2c92e036426fb5a64635dee3efb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bdb0436c_edff0be1",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/kafka/EventConsumerIT.java",
         "patchSetId": 1
