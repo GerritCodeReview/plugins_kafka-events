@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6bcc5fd_45bd1aae",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/subscribe/KafkaEventSubscriber.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2021-03-03T21:45:35Z",
+      "side": 1,
+      "message": "Is there a risk this would be lopping forever?\nHave you checked what is the impact on the Gerrit startup?",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 13
+      },
+      "revId": "7518dd3baba54d5589b4883cfbdcdeb5828ff277",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
