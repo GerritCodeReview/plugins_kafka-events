@@ -22,6 +22,30 @@
       },
       "revId": "7518dd3baba54d5589b4883cfbdcdeb5828ff277",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "082a769c_a6cd409c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/subscribe/KafkaEventSubscriber.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1072905
+      },
+      "writtenOn": "2021-03-04T16:41:33Z",
+      "side": 1,
+      "message": "\u003e Is there a risk this would be lopping forever?\n\nYes, but consuming from the topic is already a forever loop, unless the consumer is being shut down (see L134).\n\nIf the consumer never gets assigned a partition (not sure why this might happen, perhaps you know better some scenarios) we would loop in the inner loop, by calling poll() every polling interval.\n\nThis behaviour however will be the same even without the the new inner loop, in case no partitions are assigned, as follows:\n\n* L145 calls poll()\n* L146 is a noop (since the previous poll, without partitions, returned 0 records)\n* L145 calls poll() again.\n\nA corner case however is that if the consumer was looping forever waiting for partitions AND has *explicitly* been asked to be stopped in the meanwhile, we should interrupt even the inner loop.\n\nLet me do that.\n\n\u003e Have you checked what is the impact on the Gerrit startup?\n\nYes, I tested this quite few times, I can see a delay in which the consumer starts consuming from the topic, in the order of 1 or 2 seconds, to get a partition assigned.",
+      "parentUuid": "d6bcc5fd_45bd1aae",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 13
+      },
+      "revId": "7518dd3baba54d5589b4883cfbdcdeb5828ff277",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
