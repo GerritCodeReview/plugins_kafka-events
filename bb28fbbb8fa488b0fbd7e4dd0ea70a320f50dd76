@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "484eeaa4_bca8e5a9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/kafka/subscribe/KafkaEventSubscriber.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2021-04-11T09:54:30Z",
+      "side": 1,
+      "message": "This parameter is not passed, and is not needed, as the FLogger handles it for you with:\n\n   logger.atSevere().withCause(e).log(...)\n\nRecent Error Prone version is flagging the code as invalid:\n\n  KafkaEventSubscriber.java:153: error: [FloggerFormatString] missing argument for format specifier \u0027%s\u0027\n                  logger.atSevere().withCause(e).log(\n                                                    ^\n    (see https://errorprone.info/bugpattern/FloggerFormatString)",
+      "range": {
+        "startLine": 117,
+        "startChar": 57,
+        "endLine": 117,
+        "endChar": 59
+      },
+      "revId": "bb28fbbb8fa488b0fbd7e4dd0ea70a320f50dd76",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
