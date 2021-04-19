@@ -16,6 +16,29 @@
       "message": "WIP because we need event-broker lib to be published",
       "revId": "dd48c922e9b464f60e93e4ca462151d435dfc717",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12916c75_0d56ec80",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1083454
+      },
+      "writtenOn": "2021-04-19T07:48:16Z",
+      "side": 1,
+      "message": "We have to wait for events-broker to be published",
+      "range": {
+        "startLine": 18,
+        "startChar": 6,
+        "endLine": 19,
+        "endChar": 33
+      },
+      "revId": "dd48c922e9b464f60e93e4ca462151d435dfc717",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
